@@ -1,0 +1,2495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>4 Artisa Creative OPS — Built for Interior Design Studios</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F5F2ED;
+    --black: #1A1A1A;
+    --charcoal: #2D2D2D;
+    --warm-gray: #8A8580;
+    --gold: #C4A96D;
+    --red: #B03030;
+    --border: #E0DDD8;
+    --light-bg: #F0EDE7;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--black); line-height: 1.6; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(245,242,237,0.96); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    z-index: 100;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo-icon {
+    width: 34px; height: 34px; background: var(--black);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700;
+  }
+  .nav-logo-text { font-family: 'Playfair Display', serif; font-size: 13px; line-height: 1.2; color: var(--black); }
+  .nav-logo-text span { display: block; font-family: 'Inter', sans-serif; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--warm-gray); }
+  .nav-right { display: flex; align-items: center; gap: 20px; }
+  .nav-demo { font-size: 12px; color: var(--warm-gray); letter-spacing: 0.08em; text-decoration: none; }
+  .nav-demo:hover { color: var(--black); }
+  .nav-cta {
+    background: var(--black); color: #fff; padding: 10px 22px;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--charcoal); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 120px 48px 80px;
+    max-width: 1200px; margin: 0 auto;
+    gap: 72px;
+  }
+  .hero-left { flex: 0 0 480px; }
+  .hero-eyebrow {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--red); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--red); }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(44px, 5.5vw, 72px); font-weight: 900; line-height: 1.02;
+    margin-bottom: 28px;
+  }
+  .hero h1 em { font-style: italic; color: var(--warm-gray); }
+  .hero-sub {
+    font-size: 17px; color: var(--charcoal); line-height: 1.75;
+    font-weight: 300; margin-bottom: 20px;
+  }
+  .hero-tagline {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: 15px; color: var(--warm-gray);
+    margin-bottom: 44px; padding-left: 16px;
+    border-left: 2px solid var(--gold);
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+  .btn-primary {
+    background: var(--black); color: #fff; padding: 16px 32px;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; border: none; cursor: pointer; transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--charcoal); }
+  .btn-ghost {
+    background: transparent; color: var(--black); padding: 16px 32px;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; border: 1.5px solid var(--black); cursor: pointer; transition: all 0.2s;
+  }
+  .btn-ghost:hover { background: var(--black); color: #fff; }
+  .hero-stats { display: flex; gap: 36px; }
+  .stat-item { }
+  .stat-num {
+    font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700;
+    display: block; line-height: 1;
+  }
+  .stat-label { font-size: 11px; color: var(--warm-gray); letter-spacing: 0.08em; margin-top: 4px; }
+
+  .hero-right { flex: 1; position: relative; }
+  .hero-screen-stack { position: relative; }
+  .hero-screen-main img {
+    width: 100%; border: 1px solid var(--border);
+    box-shadow: 0 32px 80px rgba(0,0,0,0.15);
+  }
+  .hero-screen-float {
+    position: absolute; bottom: -32px; left: -36px; width: 52%;
+    border: 1px solid var(--border); box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+    overflow: hidden;
+  }
+  .hero-screen-float img { width: 100%; display: block; }
+  .hero-founding-tag {
+    position: absolute; top: -16px; right: -16px;
+    background: var(--red); color: #fff;
+    padding: 10px 18px; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+  }
+
+  /* ── DEMO BAR ── */
+  .demo-bar {
+    background: var(--black); color: #fff;
+    padding: 18px 48px;
+    display: flex; align-items: center; justify-content: center; gap: 32px;
+    flex-wrap: wrap;
+  }
+  .demo-bar p { font-size: 14px; color: #C8C4BC; }
+  .demo-bar code {
+    background: rgba(255,255,255,0.1); padding: 4px 10px;
+    font-size: 13px; font-family: monospace; color: var(--gold);
+  }
+  .demo-bar a {
+    background: var(--red); color: #fff; padding: 10px 22px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  /* ── PROBLEM ── */
+  .problem {
+    background: var(--black); color: var(--cream);
+    padding: 100px 48px; text-align: center;
+  }
+  .problem h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 54px); font-weight: 700; margin-bottom: 20px;
+  }
+  .problem p {
+    font-size: 18px; color: #C0BCB5; max-width: 600px; margin: 0 auto 56px;
+    line-height: 1.7; font-weight: 300;
+  }
+  .chaos-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 680px; margin: 0 auto; }
+  .chaos-tag { padding: 9px 18px; border: 1px solid rgba(255,255,255,0.15); font-size: 13px; color: #A8A49C; }
+
+  /* ── DASHBOARD FEATURE ── */
+  .dashboard-feature {
+    padding: 100px 48px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .section-eyebrow {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--warm-gray); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 50px); font-weight: 700; margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 17px; color: var(--charcoal); line-height: 1.7; font-weight: 300;
+    max-width: 560px; margin-bottom: 48px;
+  }
+  .dashboard-preview {
+    position: relative; margin-bottom: 60px;
+  }
+  .dashboard-preview img {
+    width: 100%; border: 1px solid var(--border);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.1);
+  }
+  .metric-callouts {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 2px;
+  }
+  .metric-box {
+    background: var(--black); color: var(--cream);
+    padding: 24px 20px;
+  }
+  .metric-box .m-label { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #808080; margin-bottom: 6px; }
+  .metric-box .m-val { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; }
+  .metric-box .m-sub { font-size: 11px; color: #808080; margin-top: 4px; }
+  .metric-box.highlight .m-val { color: var(--gold); }
+
+  /* ── FEATURES GRID ── */
+  .features { padding: 0 48px 100px; max-width: 1200px; margin: 0 auto; }
+
+  .feature-block {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 72px; align-items: center; margin-bottom: 100px;
+    padding-top: 100px; border-top: 1px solid var(--border);
+  }
+  .feature-block.reverse { }
+  .feature-block.reverse .feature-text { order: 2; }
+  .feature-block.reverse .feature-img { order: 1; }
+
+  .feat-tag {
+    display: inline-block; font-size: 9px; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--warm-gray); border: 1px solid var(--border);
+    padding: 5px 12px; margin-bottom: 20px;
+  }
+  .feature-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3vw, 38px); font-weight: 700;
+    margin-bottom: 16px; line-height: 1.15;
+  }
+  .feature-text p { font-size: 16px; color: var(--charcoal); line-height: 1.75; font-weight: 300; margin-bottom: 20px; }
+  .feat-list { list-style: none; }
+  .feat-list li {
+    font-size: 14px; color: var(--charcoal); padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .feat-list li::before { content: "—"; color: var(--warm-gray); flex-shrink: 0; }
+
+  .feature-img img {
+    width: 100%; border: 1px solid var(--border);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.09);
+  }
+
+  /* ── FINANCIALS HIGHLIGHT ── */
+  .financials-section {
+    background: var(--light-bg); padding: 100px 48px;
+  }
+  .financials-inner { max-width: 1200px; margin: 0 auto; }
+  .fin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+  .fin-numbers {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 36px;
+  }
+  .fin-box { background: var(--black); color: var(--cream); padding: 24px 20px; }
+  .fin-box .fl { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #888; margin-bottom: 6px; }
+  .fin-box .fv { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; }
+  .fin-box .fs { font-size: 11px; color: #888; margin-top: 4px; }
+  .fin-box.accent .fv { color: var(--gold); }
+
+  /* ── AI SECTION ── */
+  .ai-section { padding: 100px 48px; text-align: center; }
+  .ai-inner { max-width: 1100px; margin: 0 auto; }
+  .ai-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px; margin-top: 60px;
+  }
+  .ai-card { background: var(--black); color: var(--cream); padding: 40px 32px; text-align: left; }
+  .ai-card-icon { font-size: 20px; margin-bottom: 20px; color: var(--gold); }
+  .ai-card h4 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+  .ai-card p { font-size: 14px; color: #A8A49C; line-height: 1.65; }
+
+  /* ── GALLERY ── */
+  .gallery { padding: 100px 48px; background: var(--black); }
+  .gallery-inner { max-width: 1200px; margin: 0 auto; }
+  .gallery .section-title { color: var(--cream); }
+  .gallery .section-eyebrow { color: var(--gold); }
+  .gallery-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 3px; margin-top: 48px;
+  }
+  .gallery-item { position: relative; overflow: hidden; aspect-ratio: 16/10; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+  .gallery-item:hover img { transform: scale(1.05); }
+  .gallery-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: rgba(26,26,26,0.9); color: #fff;
+    padding: 8px 14px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    transform: translateY(100%); transition: transform 0.3s;
+  }
+  .gallery-item:hover .gallery-label { transform: translateY(0); }
+  .gallery-item.wide { grid-column: span 2; }
+
+  /* ── LOGIN SHOWCASE ── */
+  .login-showcase {
+    padding: 100px 48px;
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
+  }
+  .login-showcase img {
+    width: 100%; border: 1px solid var(--border);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.12);
+  }
+  .login-text h2 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 3.5vw, 46px); font-weight: 700; margin-bottom: 16px; }
+  .login-text p { font-size: 16px; color: var(--charcoal); line-height: 1.75; font-weight: 300; margin-bottom: 28px; }
+  .demo-credentials {
+    background: var(--black); color: var(--cream); padding: 24px 28px;
+    border-left: 3px solid var(--red);
+  }
+  .demo-credentials p { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 12px; font-weight: 500; }
+  .demo-credentials .cred { font-size: 14px; color: var(--cream); margin-bottom: 6px; }
+  .demo-credentials .cred span { color: var(--gold); font-family: monospace; }
+  .demo-credentials a {
+    display: inline-block; margin-top: 16px;
+    background: var(--red); color: #fff; padding: 10px 20px;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none;
+  }
+
+  /* ── PRICING ── */
+  .pricing { background: var(--black); color: var(--cream); padding: 100px 48px; }
+  .pricing-inner { max-width: 1100px; margin: 0 auto; }
+  .pricing .section-title { color: var(--cream); margin-bottom: 8px; }
+  .pricing .section-eyebrow { color: var(--gold); }
+  .pricing-intro { font-size: 17px; color: #B0ADA8; font-weight: 300; margin-bottom: 60px; max-width: 540px; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+  .price-card { background: #222; padding: 44px 36px; position: relative; }
+  .price-card.featured { background: #fff; color: var(--black); }
+  .founding-pill {
+    position: absolute; top: 0; right: 0;
+    background: var(--gold); color: var(--black);
+    font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 6px 14px;
+  }
+  .price-tier { font-size: 9px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #888; margin-bottom: 10px; }
+  .price-card.featured .price-tier { color: var(--warm-gray); }
+  .price-name { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; margin-bottom: 4px; line-height: 1.2; }
+  .price-amount { font-size: 44px; font-weight: 300; letter-spacing: -0.02em; margin: 20px 0 4px; }
+  .price-amount sup { font-size: 20px; vertical-align: super; }
+  .price-period { font-size: 12px; color: #888; margin-bottom: 28px; }
+  .price-card.featured .price-period { color: var(--warm-gray); }
+  .price-desc { font-size: 14px; color: #A8A49C; line-height: 1.65; margin-bottom: 28px; }
+  .price-card.featured .price-desc { color: var(--charcoal); }
+  .price-feats { list-style: none; margin-bottom: 36px; }
+  .price-feats li { font-size: 13px; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; gap: 10px; }
+  .price-card.featured .price-feats li { border-bottom-color: var(--border); color: var(--charcoal); }
+  .price-feats li::before { content: "✓"; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+  .pcta {
+    display: block; text-align: center; padding: 14px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    text-decoration: none; cursor: pointer; border: none; transition: opacity 0.2s;
+  }
+  .pcta:hover { opacity: 0.85; }
+  .pcta-gold { background: var(--gold); color: var(--black); }
+  .pcta-outline { background: transparent; border: 1px solid rgba(255,255,255,0.25); color: #fff; }
+  .pcta-outline:hover { background: rgba(255,255,255,0.07); opacity: 1; }
+
+  /* ── CONTACT ── */
+  .contact { padding: 100px 48px; max-width: 680px; margin: 0 auto; text-align: center; }
+  .contact h2 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 4vw, 48px); font-weight: 700; margin-bottom: 16px; }
+  .contact > p { font-size: 17px; color: var(--charcoal); line-height: 1.7; font-weight: 300; margin-bottom: 48px; }
+  .form { display: flex; flex-direction: column; gap: 14px; text-align: left; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form input, .form textarea, .form select {
+    width: 100%; padding: 14px 16px;
+    border: 1.5px solid var(--border); background: #fff;
+    font-family: 'Inter', sans-serif; font-size: 14px; color: var(--black);
+    outline: none; transition: border-color 0.2s; -webkit-appearance: none;
+  }
+  .form input:focus, .form textarea:focus, .form select:focus { border-color: var(--black); }
+  .form textarea { min-height: 110px; resize: vertical; }
+  .form button {
+    background: var(--black); color: #fff; padding: 16px 36px; border: none;
+    font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    cursor: pointer; align-self: flex-start; transition: background 0.2s;
+  }
+  .form button:hover { background: var(--charcoal); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black); color: #888;
+    padding: 40px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+    border-top: 1px solid #333;
+  }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--cream); }
+  footer p { font-size: 12px; }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .hero { flex-direction: column; padding: 110px 24px 60px; gap: 48px; }
+    .hero-left { flex: none; }
+    .hero-screen-float { display: none; }
+    .feature-block, .fin-grid, .login-showcase { grid-template-columns: 1fr; gap: 40px; }
+    .feature-block.reverse .feature-text { order: unset; }
+    .feature-block.reverse .feature-img { order: unset; }
+    .ai-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-item.wide { grid-column: span 1; }
+    .metric-callouts { grid-template-columns: 1fr 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; gap: 2px; }
+    .features, .dashboard-feature, .financials-section, .ai-section, .gallery, .contact, .pricing { padding-left: 24px; padding-right: 24px; }
+    footer { flex-direction: column; text-align: center; padding: 32px 24px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-icon">4</div>
+    <div class="nav-logo-text">4 artisa <span>Creative OPS</span></div>
+  </a>
+  <div class="nav-right">
+    <a href="#demo" class="nav-demo">Explore Demo</a>
+    <a href="#contact" class="nav-cta">Apply for Access</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Private Preview · Founding Studios Only · 2026</p>
+    <h1>The studio command center <em>interior designers</em> have been waiting for.</h1>
+    <p class="hero-sub">4 Artisa Creative OPS brings your clients, projects, financials, leads, vendors, and AI workflows into one premium, editorial workspace — built by an artist, for artists.</p>
+    <p class="hero-tagline">Made by an artist, for artists, for the art.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Apply for Founding Access</a>
+      <a href="#demo" class="btn-ghost">Explore the Demo</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">3–5</span>
+        <p class="stat-label">Founding Studios Only</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">6</span>
+        <p class="stat-label">Core Modules</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">AI</span>
+        <p class="stat-label">Workflows Built In</p>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-screen-stack">
+      <div class="hero-founding-tag">Founding Preview</div>
+      <div class="hero-screen-main">
+        <img src="Screenshot 2026-06-30 at 4.47.50 AM.png" alt="4 Artisa Studio Dashboard" />
+      </div>
+      <div class="hero-screen-float">
+        <img src="Screenshot 2026-06-30 at 4.47.36 AM.png" alt="Login — Enter the Studio" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="demo-bar" id="demo">
+  <p>🎬 Live demo studio available right now — no signup required.</p>
+  <div>
+    <p style="font-size:12px; color:#888; margin-bottom:4px;">Demo credentials</p>
+    <code>hello@4artisa.studio</code> &nbsp;/&nbsp; <code>4artisa2026</code>
+  </div>
+  <a href="mailto:christopherbrian@christopherbrianarts.studio">Request Demo Access →</a>
+</div>
+
+<section class="problem">
+  <h2>Your studio is scattered across a dozen tools.</h2>
+  <p>Most interior design studios manage a six-figure business across spreadsheets, sticky notes, email threads, and memory. There's a better way.</p>
+  <div class="chaos-grid">
+    <div class="chaos-tag">Email Threads</div>
+    <div class="chaos-tag">Google Sheets</div>
+    <div class="chaos-tag">Sticky Notes</div>
+    <div class="chaos-tag">Project Board Apps</div>
+    <div class="chaos-tag">Vendor Text Threads</div>
+    <div class="chaos-tag">Paper Intake Forms</div>
+    <div class="chaos-tag">Separate Invoice Software</div>
+    <div class="chaos-tag">PDF Pricing Guides</div>
+    <div class="chaos-tag">Shared Folder Chaos</div>
+    <div class="chaos-tag">Mental Task Lists</div>
+  </div>
+</section>
+
+<section class="dashboard-feature">
+  <p class="section-eyebrow">Studio Dashboard</p>
+  <h2 class="section-title">Welcome back. Here's everything.</h2>
+  <p class="section-sub">The moment you log in, your studio is visible. Live metrics across clients, projects, tasks, and revenue — all at a glance, all in one place.</p>
+  <div class="dashboard-preview">
+    <img src="Screenshot 2026-06-30 at 4.47.50 AM.png" alt="Studio Dashboard — Welcome Back Artisa" />
+  </div>
+  <div class="metric-callouts">
+    <div class="metric-box">
+      <p class="m-label">Revenue · Paid</p>
+      <div class="m-val">$21,420</div>
+      <p class="m-sub">received this cycle</p>
+    </div>
+    <div class="metric-box highlight">
+      <p class="m-label">Revenue · Pending</p>
+      <div class="m-val">$11,480</div>
+      <p class="m-sub">awaiting payment</p>
+    </div>
+    <div class="metric-box">
+      <p class="m-label">Active Projects</p>
+      <div class="m-val">4</div>
+      <p class="m-sub">2 in progress</p>
+    </div>
+    <div class="metric-box">
+      <p class="m-label">Open Tasks</p>
+      <div class="m-val">11</div>
+      <p class="m-sub">this cycle</p>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+
+  <div class="feature-block">
+    <div class="feature-text">
+      <span class="feat-tag">Financials</span>
+      <h3>Know your numbers. Every project, every margin.</h3>
+      <p>Track retail price, trade cost, profit, and margin percentage on every single project. No more guessing if a job was actually profitable. 4 Artisa shows you the business behind the art.</p>
+      <ul class="feat-list">
+        <li>Retail vs. trade cost per project</li>
+        <li>Profit and margin % calculated automatically</li>
+        <li>Project status: Planning / In Progress</li>
+        <li>Revenue dashboard — paid vs. pending</li>
+        <li>Full financial overview at studio level</li>
+      </ul>
+    </div>
+    <div class="feature-img">
+      <img src="Screenshot 2026-06-30 at 4.48.08 AM.png" alt="Project Financials — Profit & Margin" />
+    </div>
+  </div>
+
+  <div class="feature-block reverse">
+    <div class="feature-text">
+      <span class="feat-tag">Leads & Pipeline</span>
+      <h3>Every inquiry tracked from first contact to converted.</h3>
+      <p>Manage your full lead pipeline — New, Contacted, Qualified, Converted, Lost — with lead source tracking (Instagram DM, Pinterest, Website Form, Referral). Never lose a prospect in your inbox again.</p>
+      <ul class="feat-list">
+        <li>Pipeline stages: New → Qualified → Converted</li>
+        <li>Lead source tracking per inquiry</li>
+        <li>Prep checklists + follow-up drafts ready to send</li>
+        <li>Referral chain tracking (e.g. Referral · Sarah Mitchell)</li>
+        <li>One-click to open full lead record</li>
+      </ul>
+    </div>
+    <div class="feature-img">
+      <img src="Screenshot 2026-06-30 at 4.50.42 AM.png" alt="Leads & Consultations Pipeline" />
+    </div>
+  </div>
+
+  <div class="feature-block">
+    <div class="feature-text">
+      <span class="feat-tag">Client CRM</span>
+      <h3>Every client detail, exactly where you need it.</h3>
+      <p>Full client profiles with style preferences, budget, timeline, project context, and communication notes. One click generates an AI-powered Client Snapshot so you're always prepared before a call.</p>
+      <ul class="feat-list">
+        <li>Complete client profiles with project context</li>
+        <li>Style preferences, budget, and timeline fields</li>
+        <li>AI Snapshot — instant client brief</li>
+        <li>Photo and floor plan attachments</li>
+        <li>Active / Lead / Completed status</li>
+      </ul>
+    </div>
+    <div class="feature-img">
+      <img src="Screenshot 2026-06-30 at 4.51.00 AM.png" alt="Client CRM" />
+    </div>
+  </div>
+
+  <div class="feature-block reverse">
+    <div class="feature-text">
+      <span class="feat-tag">Project Operations</span>
+      <h3>Every project stage tracked and summarized by AI.</h3>
+      <p>Manage status, materials, rooms, square footage, design style, timelines, and budgets. Generate AI Project Summaries and Design Summaries in one click — no more writing updates from scratch.</p>
+      <ul class="feat-list">
+        <li>Full project records linked to clients</li>
+        <li>Status: Planning → Procurement → Installation</li>
+        <li>Materials, rooms, and space type fields</li>
+        <li>AI Project Summary + Design Summary</li>
+        <li>Structural changes and property status</li>
+      </ul>
+    </div>
+    <div class="feature-img">
+      <img src="Screenshot 2026-06-30 at 4.51.40 AM.png" alt="Project Operations" />
+    </div>
+  </div>
+
+  <div class="feature-block">
+    <div class="feature-text">
+      <span class="feat-tag">Workflow & Tasks</span>
+      <h3>Your week, organized by what actually matters.</h3>
+      <p>Tasks sorted into four lanes: Priority, Admin, Marketing, and Client. Due dates visible across every project. One click generates a Weekly AI Studio Summary so you start every week with clarity.</p>
+      <ul class="feat-list">
+        <li>Priority / Admin / Marketing / Client lanes</li>
+        <li>Due dates visible across all projects</li>
+        <li>Weekly AI Studio Summary</li>
+        <li>Projects in motion + priority tasks at a glance</li>
+      </ul>
+    </div>
+    <div class="feature-img">
+      <img src="Screenshot 2026-06-30 at 4.52.51 AM.png" alt="Workflow & Tasks" />
+    </div>
+  </div>
+
+  <div class="feature-block reverse">
+    <div class="feature-text">
+      <span class="feat-tag">Vendor Library</span>
+      <h3>Your trade relationships, finally organized.</h3>
+      <p>Store every vendor with trade discount, lead times, contact details, notes, and linked projects. Categorized by Furniture, Lighting, Textiles, and more. Your entire trade network, searchable in seconds.</p>
+      <ul class="feat-list">
+        <li>Trade discount + lead time per vendor</li>
+        <li>Categorized by type: Furniture, Lighting, Textiles</li>
+        <li>Notes linked to client projects</li>
+        <li>Website links and full contact info</li>
+      </ul>
+    </div>
+    <div class="feature-img">
+      <img src="Screenshot 2026-06-30 at 4.53.17 AM.png" alt="Vendor Library" />
+    </div>
+  </div>
+
+  <div class="feature-block">
+    <div class="feature-text">
+      <span class="feat-tag">Ops & Library</span>
+      <h3>Your studio's processes, finally written down.</h3>
+      <p>SOPs, email templates with merge tags, pricing guides, brand guidelines, content calendars, and client intake forms — all in one filterable, editable library. The engine room of a professional studio.</p>
+      <ul class="feat-list">
+        <li>Email templates with {'{{'}merge_tags{'}}'}</li>
+        <li>Pricing guides and service packages</li>
+        <li>Onboarding SOPs and checklists</li>
+        <li>Shareable client intake forms</li>
+        <li>Monthly AI Studio Summary</li>
+      </ul>
+    </div>
+    <div class="feature-img">
+      <img src="Screenshot 2026-06-30 at 4.54.15 AM.png" alt="Ops & Library" />
+    </div>
+  </div>
+
+</section>
+
+<section class="ai-section">
+  <div class="ai-inner">
+    <p class="section-eyebrow">AI-Assisted Workflows</p>
+    <h2 class="section-title">Your AI studio assistant is built in.</h2>
+    <p class="section-sub" style="margin:0 auto 0; text-align:center;">Not bolted on. Not a chatbot. Real AI workflows woven into every module — so your studio moves faster without burning you out.</p>
+    <div class="ai-grid">
+      <div class="ai-card">
+        <div class="ai-card-icon">✦</div>
+        <h4>Client Snapshot</h4>
+        <p>One click. Full AI brief on your client — style, budget, project stage, communication notes — ready before every call.</p>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">✦</div>
+        <h4>Design Summary</h4>
+        <p>Generate a polished design narrative for any project — concept, materials, style direction — instantly, in your voice.</p>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">✦</div>
+        <h4>Follow-Up Draft</h4>
+        <p>Never write a follow-up email from scratch. AI drafts client communications tailored to your studio's brand voice.</p>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">✦</div>
+        <h4>Lead Summary</h4>
+        <p>New inquiry? AI reviews the intake, summarizes the project, and suggests your next action — before you get on the call.</p>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">✦</div>
+        <h4>Weekly Studio Summary</h4>
+        <p>Start every week with an AI overview of active projects, priority tasks, and studio priorities — generated in seconds.</p>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">✦</div>
+        <h4>Auto-Tag Assets</h4>
+        <p>Upload mood boards and inspiration. AI automatically tags by style, material, and color palette — no manual sorting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="login-showcase" id="demo-section">
+  <img src="Screenshot 2026-06-30 at 4.47.36 AM.png" alt="4 Artisa Login — Enter the Studio" />
+  <div class="login-text">
+    <p class="section-eyebrow">Live Demo Access</p>
+    <h2>See it before you commit.</h2>
+    <p>The demo studio is pre-loaded with four fictional interior design clients across different project stages — so you can explore every module, click every button, and experience the full system before applying for founding access.</p>
+    <div class="demo-credentials">
+      <p>Studio Demo Access</p>
+      <div class="cred">Email: <span>hello@4artisa.studio</span></div>
+      <div class="cred">Password: <span>4artisa2026</span></div>
+      <a href="mailto:christopherbrian@christopherbrianarts.studio">Request Live Demo Link →</a>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="gallery-inner">
+    <p class="section-eyebrow">Inside the System</p>
+    <h2 class="section-title" style="margin-bottom:8px;">Every screen, purpose-built.</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item wide">
+        <img src="Screenshot 2026-06-30 at 4.47.36 AM.png" alt="Login" />
+        <div class="gallery-label">Login — Enter the Studio</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot 2026-06-30 at 4.47.50 AM.png" alt="Dashboard" />
+        <div class="gallery-label">Studio Dashboard</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot 2026-06-30 at 4.48.08 AM.png" alt="Financials" />
+        <div class="gallery-label">Project Financials</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot 2026-06-30 at 4.50.42 AM.png" alt="Pipeline" />
+        <div class="gallery-label">Leads & Pipeline</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot 2026-06-30 at 4.51.00 AM.png" alt="Client CRM" />
+        <div class="gallery-label">Client CRM</div>
+      </div>
+      <div class="gallery-item wide">
+        <img src="Screenshot 2026-06-30 at 4.51.40 AM.png" alt="Projects" />
+        <div class="gallery-label">Project Operations</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot 2026-06-30 at 4.52.03 AM.png" alt="Services" />
+        <div class="gallery-label">Services & Pricing</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot 2026-06-30 at 4.52.51 AM.png" alt="Tasks" />
+        <div class="gallery-label">Workflow & Tasks</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot 2026-06-30 at 4.53.17 AM.png" alt="Vendors" />
+        <div class="gallery-label">Vendor Library</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot 2026-06-30 at 4.53.39 AM.png" alt="Forms" />
+        <div class="gallery-label">Client Forms</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot 2026-06-30 at 4.53.54 AM.png" alt="Assets" />
+        <div class="gallery-label">Asset Management</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot 2026-06-30 at 4.54.15 AM.png" alt="Ops" />
+        <div class="gallery-label">Ops & Library</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <p class="section-eyebrow">Service Tiers</p>
+    <h2 class="section-title">Four tiers. One framework.</h2>
+    <p class="pricing-intro">Whether you're a solo designer, a boutique team, a growing agency, or an organization looking to license — there's a tier built for where you are right now.</p>
+    <div class="pricing-grid">
+
+      <div class="price-card">
+        <p class="price-tier">Tier 1 · Managed</p>
+        <h3 class="price-name">Solo Studio OPS Foundation</h3>
+        <div class="price-amount"><sup>$</sup>1,500</div>
+        <p class="price-period">+ $59/mo managed hosting · $750 deposit to begin</p>
+        <p class="price-desc">For solo interior designers. 4 artisa manages your hosting, database, and infrastructure — you just log in and run your studio.</p>
+        <ul class="price-feats">
+          <li>Studio Command Center + dashboard</li>
+          <li>Client CRM + Project Operations</li>
+          <li>Lead Intake manager</li>
+          <li>Vendor & Materials Library</li>
+          <li>AI: Client Snapshots, Lead Summaries, Follow-Up Drafts</li>
+          <li>Foundational studio branding applied</li>
+          <li>Managed hosting — no accounts to create</li>
+          <li>14-day delivery timeline</li>
+        </ul>
+        <a href="#contact" class="pcta pcta-outline">Apply for Tier 1</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="founding-pill">Most Popular</div>
+        <p class="price-tier">Tier 2 · Client-Owned</p>
+        <h3 class="price-name">Boutique Studio OPS</h3>
+        <div class="price-amount"><sup>$</sup>3,500</div>
+        <p class="price-period">one-time · $1,750 deposit to begin · no monthly fee to 4 artisa</p>
+        <p class="price-desc">For boutique studios with a small team. You own the hosting, the data, the infrastructure — 4 artisa builds and deploys everything, then hands it over.</p>
+        <ul class="price-feats">
+          <li>Everything in Tier 1</li>
+          <li>Team access + role-based permissions</li>
+          <li>Expanded workflow configuration</li>
+          <li>Full AI workflow suite included</li>
+          <li>Expanded data ingestion</li>
+          <li>Client-owned hosting deployment</li>
+          <li>Team onboarding + handoff session</li>
+          <li>14–21 business day delivery</li>
+        </ul>
+        <a href="#contact" class="pcta pcta-gold">Apply for Tier 2</a>
+      </div>
+
+      <div class="price-card">
+        <p class="price-tier">Tier 3 · Client-Owned</p>
+        <h3 class="price-name">Creative Team OPS</h3>
+        <div class="price-amount"><sup>$</sup>4,800</div>
+        <p class="price-period">one-time · $2,400 deposit to begin · no monthly fee to 4 artisa</p>
+        <p class="price-desc">For growing studios, agencies, and design firms. A fully configured operations system with integrations, automations, data migration, and live team training.</p>
+        <ul class="price-feats">
+          <li>90-min discovery + workflow mapping session</li>
+          <li>6 core operational workflows configured</li>
+          <li>3 included integrations (Google Drive, Stripe, Image Engine) + 3 additional</li>
+          <li>Standard automations included</li>
+          <li>Data migration up to 500 records</li>
+          <li>Two consolidated review rounds</li>
+          <li>90-min live team training + recorded session</li>
+          <li>21–30 business day delivery</li>
+        </ul>
+        <a href="#contact" class="pcta pcta-outline">Apply for Tier 3</a>
+      </div>
+
+      <div class="price-card">
+        <p class="price-tier">Tier 4 · Licensing</p>
+        <h3 class="price-name">White-Label &amp; Licensing</h3>
+        <div class="price-amount" style="font-size:28px; line-height:1.1; margin: 20px 0 4px;">$7,500–<br>$15,000+</div>
+        <p class="price-period">upfront · structured per agreement · ongoing support quoted separately</p>
+        <p class="price-desc">For coaches, educators, agencies, and organizations that want to adapt, brand, distribute, or commercially use the 4 artisa Creative OPS framework.</p>
+        <ul class="price-feats">
+          <li>Internal organizational license</li>
+          <li>Limited white-label implementation</li>
+          <li>Multi-client deployment rights</li>
+          <li>Agency implementation rights</li>
+          <li>Educational / cohort-use license</li>
+          <li>Custom strategic partnership</li>
+          <li>Every arrangement structured individually</li>
+        </ul>
+        <a href="#contact" class="pcta pcta-outline">Start a Conversation</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <p class="section-eyebrow">Apply for Founding Access</p>
+  <h2>Only 3–5 founding studios accepted.</h2>
+  <p>This is a partnership, not a software sign-up. Tell me about your studio and I'll be in touch personally within 48 hours.</p>
+  <form class="form" name="founding-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">    <input type="hidden" name="form-name" value="founding-application" />
+    <p style="display:none"><input name="bot-field" /></p>
+    <div class="form-row">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Studio Email" required />
+    </div>
+    <input type="text" placeholder="Studio Name" />
+    <select required>
+      <option value="" disabled selected>How are you currently managing operations?</option>
+      <option>Google Sheets + Email</option>
+      <option>Notion or Airtable</option>
+      <option>Studio Designer / Mydoma / DesignFiles</option>
+      <option>Multiple disconnected tools</option>
+      <option>Nothing formal — that's the problem</option>
+    </select>
+    <select>
+      <option value="" disabled selected>Which tier interests you?</option>
+      <option>Founding Partner Setup ($2,000 one-time)</option>
+      <option>Studio License ($97/month)</option>
+      <option>White-Label / Licensing</option>
+      <option>Not sure — just want to learn more</option>
+    </select>
+    <textarea placeholder="Tell me about your studio — number of active projects, team size, biggest operational challenge right now..."></textarea>
+    <button type="submit">Submit Application</button>
+  </form>
+</section>
+
+<footer>
+  <div class="footer-brand">4 Artisa Creative OPS</div>
+  <p>© 2026 Christopher Brian Arts · <a href="mailto:christopherbrian@christopherbrianarts.studio">christopherbrian@christopherbrianarts.studio</a></p>
+  <p style="font-size:11px;">Private Preview · Interior Design Studios Only · First Launch 2026</p>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  btn.textContent = 'Application received — I\'ll be in touch within 48 hours.';
+  btn.style.background = '#C4A96D';
+  btn.style.color = '#1A1A1A';
+  btn.disabled = true;
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+</body>
+</html>  .demo-bar p { font-size: 14px; color: #C8C4BC; }
+  .demo-bar code {
+    background: rgba(255,255,255,0.1); padding: 4px 10px;
+    font-size: 13px; font-family: monospace; color: var(--gold);
+  }
+  .demo-bar a {
+    background: var(--red); color: #fff; padding: 10px 22px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  /* ── PROBLEM ── */
+  .problem {
+    background: var(--black); color: var(--cream);
+    padding: 100px 48px; text-align: center;
+  }
+  .problem h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 54px); font-weight: 700; margin-bottom: 20px;
+  }
+  .problem p {
+    font-size: 18px; color: #C0BCB5; max-width: 600px; margin: 0 auto 56px;
+    line-height: 1.7; font-weight: 300;
+  }
+  .chaos-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 680px; margin: 0 auto; }
+  .chaos-tag { padding: 9px 18px; border: 1px solid rgba(255,255,255,0.15); font-size: 13px; color: #A8A49C; }
+
+  /* ── DASHBOARD FEATURE ── */
+  .dashboard-feature {
+    padding: 100px 48px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .section-eyebrow {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--warm-gray); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 50px); font-weight: 700; margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 17px; color: var(--charcoal); line-height: 1.7; font-weight: 300;
+    max-width: 560px; margin-bottom: 48px;
+  }
+  .dashboard-preview {
+    position: relative; margin-bottom: 60px;
+  }
+  .dashboard-preview img {
+    width: 100%; border: 1px solid var(--border);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.1);
+  }
+  .metric-callouts {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 2px;
+  }
+  .metric-box {
+    background: var(--black); color: var(--cream);
+    padding: 24px 20px;
+  }
+  .metric-box .m-label { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #808080; margin-bottom: 6px; }
+  .metric-box .m-val { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; }
+  .metric-box .m-sub { font-size: 11px; color: #808080; margin-top: 4px; }
+  .metric-box.highlight .m-val { color: var(--gold); }
+
+  /* ── FEATURES GRID ── */
+  .features { padding: 0 48px 100px; max-width: 1200px; margin: 0 auto; }
+
+  .feature-block {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 72px; align-items: center; margin-bottom: 100px;
+    padding-top: 100px; border-top: 1px solid var(--border);
+  }
+  .feature-block.reverse { }
+  .feature-block.reverse .feature-text { order: 2; }
+  .feature-block.reverse .feature-img { order: 1; }
+
+  .feat-tag {
+    display: inline-block; font-size: 9px; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--warm-gray); border: 1px solid var(--border);
+    padding: 5px 12px; margin-bottom: 20px;
+  }
+  .feature-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3vw, 38px); font-weight: 700;
+    margin-bottom: 16px; line-height: 1.15;
+  }
+  .feature-text p { font-size: 16px; color: var(--charcoal); line-height: 1.75; font-weight: 300; margin-bottom: 20px; }
+  .feat-list { list-style: none; }
+  .feat-list li {
+    font-size: 14px; color: var(--charcoal); padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .feat-list li::before { content: "—"; color: var(--warm-gray); flex-shrink: 0; }
+
+  .feature-img img {
+    width: 100%; border: 1px solid var(--border);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.09);
+  }
+
+  /* ── FINANCIALS HIGHLIGHT ── */
+  .financials-section {
+    background: var(--light-bg); padding: 100px 48px;
+  }
+  .financials-inner { max-width: 1200px; margin: 0 auto; }
+  .fin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+  .fin-numbers {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 36px;
+  }
+  .fin-box { background: var(--black); color: var(--cream); padding: 24px 20px; }
+  .fin-box .fl { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #888; margin-bottom: 6px; }
+  .fin-box .fv { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; }
+  .fin-box .fs { font-size: 11px; color: #888; margin-top: 4px; }
+  .fin-box.accent .fv { color: var(--gold); }
+
+  /* ── AI SECTION ── */
+  .ai-section { padding: 100px 48px; text-align: center; }
+  .ai-inner { max-width: 1100px; margin: 0 auto; }
+  .ai-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px; margin-top: 60px;
+  }
+  .ai-card { background: var(--black); color: var(--cream); padding: 40px 32px; text-align: left; }
+  .ai-card-icon { font-size: 20px; margin-bottom: 20px; color: var(--gold); }
+  .ai-card h4 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+  .ai-card p { font-size: 14px; color: #A8A49C; line-height: 1.65; }
+
+  /* ── GALLERY ── */
+  .gallery { padding: 100px 48px; background: var(--black); }
+  .gallery-inner { max-width: 1200px; margin: 0 auto; }
+  .gallery .section-title { color: var(--cream); }
+  .gallery .section-eyebrow { color: var(--gold); }
+  .gallery-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 3px; margin-top: 48px;
+  }
+  .gallery-item { position: relative; overflow: hidden; aspect-ratio: 16/10; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+  .gallery-item:hover img { transform: scale(1.05); }
+  .gallery-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: rgba(26,26,26,0.9); color: #fff;
+    padding: 8px 14px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    transform: translateY(100%); transition: transform 0.3s;
+  }
+  .gallery-item:hover .gallery-label { transform: translateY(0); }
+  .gallery-item.wide { grid-column: span 2; }
+
+  /* ── LOGIN SHOWCASE ── */
+  .login-showcase {
+    padding: 100px 48px;
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
+  }
+  .login-showcase img {
+    width: 100%; border: 1px solid var(--border);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.12);
+  }
+  .login-text h2 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 3.5vw, 46px); font-weight: 700; margin-bottom: 16px; }
+  .login-text p { font-size: 16px; color: var(--charcoal); line-height: 1.75; font-weight: 300; margin-bottom: 28px; }
+  .demo-credentials {
+    background: var(--black); color: var(--cream); padding: 24px 28px;
+    border-left: 3px solid var(--red);
+  }
+  .demo-credentials p { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 12px; font-weight: 500; }
+  .demo-credentials .cred { font-size: 14px; color: var(--cream); margin-bottom: 6px; }
+  .demo-credentials .cred span { color: var(--gold); font-family: monospace; }
+  .demo-credentials a {
+    display: inline-block; margin-top: 16px;
+    background: var(--red); color: #fff; padding: 10px 20px;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none;
+  }
+
+  /* ── PRICING ── */
+  .pricing { background: var(--black); color: var(--cream); padding: 100px 48px; }
+  .pricing-inner { max-width: 1100px; margin: 0 auto; }
+  .pricing .section-title { color: var(--cream); margin-bottom: 8px; }
+  .pricing .section-eyebrow { color: var(--gold); }
+  .pricing-intro { font-size: 17px; color: #B0ADA8; font-weight: 300; margin-bottom: 60px; max-width: 540px; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+  .price-card { background: #222; padding: 44px 36px; position: relative; }
+  .price-card.featured { background: #fff; color: var(--black); }
+  .founding-pill {
+    position: absolute; top: 0; right: 0;
+    background: var(--gold); color: var(--black);
+    font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 6px 14px;
+  }
+  .price-tier { font-size: 9px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #888; margin-bottom: 10px; }
+  .price-card.featured .price-tier { color: var(--warm-gray); }
+  .price-name { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; margin-bottom: 4px; line-height: 1.2; }
+  .price-amount { font-size: 44px; font-weight: 300; letter-spacing: -0.02em; margin: 20px 0 4px; }
+  .price-amount sup { font-size: 20px; vertical-align: super; }
+  .price-period { font-size: 12px; color: #888; margin-bottom: 28px; }
+  .price-card.featured .price-period { color: var(--warm-gray); }
+  .price-desc { font-size: 14px; color: #A8A49C; line-height: 1.65; margin-bottom: 28px; }
+  .price-card.featured .price-desc { color: var(--charcoal); }
+  .price-feats { list-style: none; margin-bottom: 36px; }
+  .price-feats li { font-size: 13px; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; gap: 10px; }
+  .price-card.featured .price-feats li { border-bottom-color: var(--border); color: var(--charcoal); }
+  .price-feats li::before { content: "✓"; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+  .pcta {
+    display: block; text-align: center; padding: 14px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    text-decoration: none; cursor: pointer; border: none; transition: opacity 0.2s;
+  }
+  .pcta:hover { opacity: 0.85; }
+  .pcta-gold { background: var(--gold); color: var(--black); }
+  .pcta-outline { background: transparent; border: 1px solid rgba(255,255,255,0.25); color: #fff; }
+  .pcta-outline:hover { background: rgba(255,255,255,0.07); opacity: 1; }
+
+  /* ── CONTACT ── */
+  .contact { padding: 100px 48px; max-width: 680px; margin: 0 auto; text-align: center; }
+  .contact h2 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 4vw, 48px); font-weight: 700; margin-bottom: 16px; }
+  .contact > p { font-size: 17px; color: var(--charcoal); line-height: 1.7; font-weight: 300; margin-bottom: 48px; }
+  .form { display: flex; flex-direction: column; gap: 14px; text-align: left; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form input, .form textarea, .form select {
+    width: 100%; padding: 14px 16px;
+    border: 1.5px solid var(--border); background: #fff;
+    font-family: 'Inter', sans-serif; font-size: 14px; color: var(--black);
+    outline: none; transition: border-color 0.2s; -webkit-appearance: none;
+  }
+  .form input:focus, .form textarea:focus, .form select:focus { border-color: var(--black); }
+  .form textarea { min-height: 110px; resize: vertical; }
+  .form button {
+    background: var(--black); color: #fff; padding: 16px 36px; border: none;
+    font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    cursor: pointer; align-self: flex-start; transition: background 0.2s;
+  }
+  .form button:hover { background: var(--charcoal); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black); color: #888;
+    padding: 40px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+    border-top: 1px solid #333;
+  }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--cream); }
+  footer p { font-size: 12px; }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .hero { flex-direction: column; padding: 110px 24px 60px; gap: 48px; }
+    .hero-left { flex: none; }
+    .hero-screen-float { display: none; }
+    .feature-block, .fin-grid, .login-showcase { grid-template-columns: 1fr; gap: 40px; }
+    .feature-block.reverse .feature-text { order: unset; }
+    .feature-block.reverse .feature-img { order: unset; }
+    .ai-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-item.wide { grid-column: span 1; }
+    .metric-callouts { grid-template-columns: 1fr 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; gap: 2px; }
+    .features, .dashboard-feature, .financials-section, .ai-section, .gallery, .contact, .pricing { padding-left: 24px; padding-right: 24px; }
+    footer { flex-direction: column; text-align: center; padding: 32px 24px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-icon">4</div>
+    <div class="nav-logo-text">4 artisa <span>Creative OPS</span></div>
+  </a>
+  <div class="nav-right">
+    <a href="#demo" class="nav-demo">Explore Demo</a>
+    <a href="#contact" class="nav-cta">Apply for Access</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Private Preview · Founding Studios Only · 2026</p>
+    <h1>The studio command center <em>interior designers</em> have been waiting for.</h1>
+    <p class="hero-sub">4 Artisa Creative OPS brings your clients, projects, financials, leads, vendors, and AI workflows into one premium, editorial workspace — built by an artist, for artists.</p>
+    <p class="hero-tagline">Made by an artist, for artists, for the art.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Apply for Founding Access</a>
+      <a href="#demo" class="btn-ghost">Explore the Demo</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">3–5</span>
+        <p class="stat-label">Founding Studios Only</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">6</span>
+        <p class="stat-label">Core Modules</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">AI</span>
+        <p class="stat-label">Workflows Built In</p>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-screen-stack">
+      <div class="hero-founding-tag">Founding Preview</div>
+      <div class="hero-screen-main">
+        <img src="Screenshot 2026-06-30 at 4.47.50 AM.png" alt="4 Artisa Studio Dashboard" />
+      </div>
+      <div class="hero-screen-float">
+        <img src="Screenshot 2026-06-30 at 4.47.36 AM.png" alt="Login — Enter the Studio" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="demo-bar" id="demo">
+  <p>🎬 Live demo studio available right now — no signup required.</p>
+  <div>
+    <p style="font-size:12px; color:#888; margin-bottom:4px;">Demo credentials</p>
+    <code>hello@4artisa.studio</code> &nbsp;/&nbsp; <code>4artisa2026</code>
+  </div>
+  <a href="mailto:christopherbrian@christopherbrianarts.studio">Request Demo Access →</a>
+</div>
+
+<section class="problem">
+  <h2>Your studio is scattered across a dozen tools.</h2>
+  <p>Most interior design studios manage a six-figure business across spreadsheets, sticky notes, email threads, and memory. There's a better way.</p>
+  <div class="chaos-grid">
+    <div class="chaos-tag">Email Threads</div>
+    <div class="chaos-tag">Google Sheets</div>
+    <div class="chaos-tag">Sticky Notes</div>
+    <div class="chaos-tag">Project Board Apps</div>
+    <div class="chaos-tag">Vendor Text Threads</div>
+    <div class="chaos-tag">Paper Intake Forms</div>
+    <div class="chaos-tag">Separate Invoice Software</div>
+    <div class="chaos-tag">PDF Pricing Guides</div>
+    <div class="chaos-tag">Shared Folder Chaos</div>
+    <div class="chaos-tag">Mental Task Lists</div>
+  </div>
+</section>
+
+<section class="dashboard-feature">
+  <p class="section-eyebrow">Studio Dashboard</p>
+  <h2 class="section-title">Welcome back. Here's everything.</h2>
+  <p class="section-sub">The moment you log in, your studio is visible. Live metrics across clients, projects, tasks, and revenue — all at a glance, all in one place.</p>
+  <div class="dashboard-preview">
+    <img src="Screenshot 2026-06-30 at 4.47.50 AM.png" alt="Studio Dashboard — Welcome Back Artisa" />
+  </div>
+  <div class="metric-callouts">
+    <div class="metric-box">
+      <p class="m-label">Revenue · Paid</p>
+      <div class="m-val">$21,420</div>
+      <p class="m-sub">received this cycle</p>
+    </div>
+    <div class="metric-box highlight">
+      <p class="m-label">Revenue · Pending</p>
+      <div class="m-val">$11,480</div>
+      <p class="m-sub">awaiting payment</p>
+    </div>
+    <div class="metric-box">
+      <p class="m-label">Active Projects</p>
+      <div class="m-val">4</div>
+      <p class="m-sub">2 in progress</p>
+    </div>
+    <div class="metric-box">
+      <p class="m-label">Open Tasks</p>
+      <div class="m-val">11</div>
+      <p class="m-sub">this cycle</p>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+
+  <div class="feature-block">
+    <div class="feature-text">
+      <span class="feat-tag">Financials</span>
+      <h3>Know your numbers. Every project, every margin.</h3>
+      <p>Track retail price, trade cost, profit, and margin percentage on every single project. No more guessing if a job was actually profitable. 4 Artisa shows you the business behind the art.</p>
+      <ul class="feat-list">
+        <li>Retail vs. trade cost per project</li>
+        <li>Profit and margin % calculated automatically</li>
+        <li>Project status: Planning / In Progress</li>
+        <li>Revenue dashboard — paid vs. pending</li>
+        <li>Full financial overview at studio level</li>
+      </ul>
+    </div>
+    <div class="feature-img">
+      <img src="Screenshot 2026-06-30 at 4.48.08 AM.png" alt="Project Financials — Profit & Margin" />
+    </div>
+  </div>
+
+  <div class="feature-block reverse">
+    <div class="feature-text">
+      <span class="feat-tag">Leads & Pipeline</span>
+      <h3>Every inquiry tracked from first contact to converted.</h3>
+      <p>Manage your full lead pipeline — New, Contacted, Qualified, Converted, Lost — with lead source tracking (Instagram DM, Pinterest, Website Form, Referral). Never lose a prospect in your inbox again.</p>
+      <ul class="feat-list">
+        <li>Pipeline stages: New → Qualified → Converted</li>
+        <li>Lead source tracking per inquiry</li>
+        <li>Prep checklists + follow-up drafts ready to send</li>
+        <li>Referral chain tracking (e.g. Referral · Sarah Mitchell)</li>
+        <li>One-click to open full lead record</li>
+      </ul>
+    </div>
+    <div class="feature-img">
+      <img src="Screenshot 2026-06-30 at 4.50.42 AM.png" alt="Leads & Consultations Pipeline" />
+    </div>
+  </div>
+
+  <div class="feature-block">
+    <div class="feature-text">
+      <span class="feat-tag">Client CRM</span>
+      <h3>Every client detail, exactly where you need it.</h3>
+      <p>Full client profiles with style preferences, budget, timeline, project context, and communication notes. One click generates an AI-powered Client Snapshot so you're always prepared before a call.</p>
+      <ul class="feat-list">
+        <li>Complete client profiles with project context</li>
+        <li>Style preferences, budget, and timeline fields</li>
+        <li>AI Snapshot — instant client brief</li>
+        <li>Photo and floor plan attachments</li>
+        <li>Active / Lead / Completed status</li>
+      </ul>
+    </div>
+    <div class="feature-img">
+      <img src="Screenshot 2026-06-30 at 4.51.00 AM.png" alt="Client CRM" />
+    </div>
+  </div>
+
+  <div class="feature-block reverse">
+    <div class="feature-text">
+      <span class="feat-tag">Project Operations</span>
+      <h3>Every project stage tracked and summarized by AI.</h3>
+      <p>Manage status, materials, rooms, square footage, design style, timelines, and budgets. Generate AI Project Summaries and Design Summaries in one click — no more writing updates from scratch.</p>
+      <ul class="feat-list">
+        <li>Full project records linked to clients</li>
+        <li>Status: Planning → Procurement → Installation</li>
+        <li>Materials, rooms, and space type fields</li>
+        <li>AI Project Summary + Design Summary</li>
+        <li>Structural changes and property status</li>
+      </ul>
+    </div>
+    <div class="feature-img">
+      <img src="Screenshot 2026-06-30 at 4.51.40 AM.png" alt="Project Operations" />
+    </div>
+  </div>
+
+  <div class="feature-block">
+    <div class="feature-text">
+      <span class="feat-tag">Workflow & Tasks</span>
+      <h3>Your week, organized by what actually matters.</h3>
+      <p>Tasks sorted into four lanes: Priority, Admin, Marketing, and Client. Due dates visible across every project. One click generates a Weekly AI Studio Summary so you start every week with clarity.</p>
+      <ul class="feat-list">
+        <li>Priority / Admin / Marketing / Client lanes</li>
+        <li>Due dates visible across all projects</li>
+        <li>Weekly AI Studio Summary</li>
+        <li>Projects in motion + priority tasks at a glance</li>
+      </ul>
+    </div>
+    <div class="feature-img">
+      <img src="Screenshot 2026-06-30 at 4.52.51 AM.png" alt="Workflow & Tasks" />
+    </div>
+  </div>
+
+  <div class="feature-block reverse">
+    <div class="feature-text">
+      <span class="feat-tag">Vendor Library</span>
+      <h3>Your trade relationships, finally organized.</h3>
+      <p>Store every vendor with trade discount, lead times, contact details, notes, and linked projects. Categorized by Furniture, Lighting, Textiles, and more. Your entire trade network, searchable in seconds.</p>
+      <ul class="feat-list">
+        <li>Trade discount + lead time per vendor</li>
+        <li>Categorized by type: Furniture, Lighting, Textiles</li>
+        <li>Notes linked to client projects</li>
+        <li>Website links and full contact info</li>
+      </ul>
+    </div>
+    <div class="feature-img">
+      <img src="Screenshot 2026-06-30 at 4.53.17 AM.png" alt="Vendor Library" />
+    </div>
+  </div>
+
+  <div class="feature-block">
+    <div class="feature-text">
+      <span class="feat-tag">Ops & Library</span>
+      <h3>Your studio's processes, finally written down.</h3>
+      <p>SOPs, email templates with merge tags, pricing guides, brand guidelines, content calendars, and client intake forms — all in one filterable, editable library. The engine room of a professional studio.</p>
+      <ul class="feat-list">
+        <li>Email templates with {'{{'}merge_tags{'}}'}</li>
+        <li>Pricing guides and service packages</li>
+        <li>Onboarding SOPs and checklists</li>
+        <li>Shareable client intake forms</li>
+        <li>Monthly AI Studio Summary</li>
+      </ul>
+    </div>
+    <div class="feature-img">
+      <img src="Screenshot 2026-06-30 at 4.54.15 AM.png" alt="Ops & Library" />
+    </div>
+  </div>
+
+</section>
+
+<section class="ai-section">
+  <div class="ai-inner">
+    <p class="section-eyebrow">AI-Assisted Workflows</p>
+    <h2 class="section-title">Your AI studio assistant is built in.</h2>
+    <p class="section-sub" style="margin:0 auto 0; text-align:center;">Not bolted on. Not a chatbot. Real AI workflows woven into every module — so your studio moves faster without burning you out.</p>
+    <div class="ai-grid">
+      <div class="ai-card">
+        <div class="ai-card-icon">✦</div>
+        <h4>Client Snapshot</h4>
+        <p>One click. Full AI brief on your client — style, budget, project stage, communication notes — ready before every call.</p>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">✦</div>
+        <h4>Design Summary</h4>
+        <p>Generate a polished design narrative for any project — concept, materials, style direction — instantly, in your voice.</p>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">✦</div>
+        <h4>Follow-Up Draft</h4>
+        <p>Never write a follow-up email from scratch. AI drafts client communications tailored to your studio's brand voice.</p>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">✦</div>
+        <h4>Lead Summary</h4>
+        <p>New inquiry? AI reviews the intake, summarizes the project, and suggests your next action — before you get on the call.</p>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">✦</div>
+        <h4>Weekly Studio Summary</h4>
+        <p>Start every week with an AI overview of active projects, priority tasks, and studio priorities — generated in seconds.</p>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">✦</div>
+        <h4>Auto-Tag Assets</h4>
+        <p>Upload mood boards and inspiration. AI automatically tags by style, material, and color palette — no manual sorting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="login-showcase" id="demo-section">
+  <img src="Screenshot 2026-06-30 at 4.47.36 AM.png" alt="4 Artisa Login — Enter the Studio" />
+  <div class="login-text">
+    <p class="section-eyebrow">Live Demo Access</p>
+    <h2>See it before you commit.</h2>
+    <p>The demo studio is pre-loaded with four fictional interior design clients across different project stages — so you can explore every module, click every button, and experience the full system before applying for founding access.</p>
+    <div class="demo-credentials">
+      <p>Studio Demo Access</p>
+      <div class="cred">Email: <span>hello@4artisa.studio</span></div>
+      <div class="cred">Password: <span>4artisa2026</span></div>
+      <a href="mailto:christopherbrian@christopherbrianarts.studio">Request Live Demo Link →</a>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="gallery-inner">
+    <p class="section-eyebrow">Inside the System</p>
+    <h2 class="section-title" style="margin-bottom:8px;">Every screen, purpose-built.</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item wide">
+        <img src="Screenshot 2026-06-30 at 4.47.36 AM.png" alt="Login" />
+        <div class="gallery-label">Login — Enter the Studio</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot 2026-06-30 at 4.47.50 AM.png" alt="Dashboard" />
+        <div class="gallery-label">Studio Dashboard</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot 2026-06-30 at 4.48.08 AM.png" alt="Financials" />
+        <div class="gallery-label">Project Financials</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot 2026-06-30 at 4.50.42 AM.png" alt="Pipeline" />
+        <div class="gallery-label">Leads & Pipeline</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot 2026-06-30 at 4.51.00 AM.png" alt="Client CRM" />
+        <div class="gallery-label">Client CRM</div>
+      </div>
+      <div class="gallery-item wide">
+        <img src="Screenshot 2026-06-30 at 4.51.40 AM.png" alt="Projects" />
+        <div class="gallery-label">Project Operations</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot 2026-06-30 at 4.52.03 AM.png" alt="Services" />
+        <div class="gallery-label">Services & Pricing</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot 2026-06-30 at 4.52.51 AM.png" alt="Tasks" />
+        <div class="gallery-label">Workflow & Tasks</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot 2026-06-30 at 4.53.17 AM.png" alt="Vendors" />
+        <div class="gallery-label">Vendor Library</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot 2026-06-30 at 4.53.39 AM.png" alt="Forms" />
+        <div class="gallery-label">Client Forms</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot 2026-06-30 at 4.53.54 AM.png" alt="Assets" />
+        <div class="gallery-label">Asset Management</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot 2026-06-30 at 4.54.15 AM.png" alt="Ops" />
+        <div class="gallery-label">Ops & Library</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <p class="section-eyebrow">Service Tiers</p>
+    <h2 class="section-title">Four tiers. One framework.</h2>
+    <p class="pricing-intro">Whether you're a solo designer, a boutique team, a growing agency, or an organization looking to license — there's a tier built for where you are right now.</p>
+    <div class="pricing-grid">
+
+      <div class="price-card">
+        <p class="price-tier">Tier 1 · Managed</p>
+        <h3 class="price-name">Solo Studio OPS Foundation</h3>
+        <div class="price-amount"><sup>$</sup>1,500</div>
+        <p class="price-period">+ $59/mo managed hosting · $750 deposit to begin</p>
+        <p class="price-desc">For solo interior designers. 4 artisa manages your hosting, database, and infrastructure — you just log in and run your studio.</p>
+        <ul class="price-feats">
+          <li>Studio Command Center + dashboard</li>
+          <li>Client CRM + Project Operations</li>
+          <li>Lead Intake manager</li>
+          <li>Vendor & Materials Library</li>
+          <li>AI: Client Snapshots, Lead Summaries, Follow-Up Drafts</li>
+          <li>Foundational studio branding applied</li>
+          <li>Managed hosting — no accounts to create</li>
+          <li>14-day delivery timeline</li>
+        </ul>
+        <a href="#contact" class="pcta pcta-outline">Apply for Tier 1</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="founding-pill">Most Popular</div>
+        <p class="price-tier">Tier 2 · Client-Owned</p>
+        <h3 class="price-name">Boutique Studio OPS</h3>
+        <div class="price-amount"><sup>$</sup>3,500</div>
+        <p class="price-period">one-time · $1,750 deposit to begin · no monthly fee to 4 artisa</p>
+        <p class="price-desc">For boutique studios with a small team. You own the hosting, the data, the infrastructure — 4 artisa builds and deploys everything, then hands it over.</p>
+        <ul class="price-feats">
+          <li>Everything in Tier 1</li>
+          <li>Team access + role-based permissions</li>
+          <li>Expanded workflow configuration</li>
+          <li>Full AI workflow suite included</li>
+          <li>Expanded data ingestion</li>
+          <li>Client-owned hosting deployment</li>
+          <li>Team onboarding + handoff session</li>
+          <li>14–21 business day delivery</li>
+        </ul>
+        <a href="#contact" class="pcta pcta-gold">Apply for Tier 2</a>
+      </div>
+
+      <div class="price-card">
+        <p class="price-tier">Tier 3 · Client-Owned</p>
+        <h3 class="price-name">Creative Team OPS</h3>
+        <div class="price-amount"><sup>$</sup>4,800</div>
+        <p class="price-period">one-time · $2,400 deposit to begin · no monthly fee to 4 artisa</p>
+        <p class="price-desc">For growing studios, agencies, and design firms. A fully configured operations system with integrations, automations, data migration, and live team training.</p>
+        <ul class="price-feats">
+          <li>90-min discovery + workflow mapping session</li>
+          <li>6 core operational workflows configured</li>
+          <li>3 included integrations (Google Drive, Stripe, Image Engine) + 3 additional</li>
+          <li>Standard automations included</li>
+          <li>Data migration up to 500 records</li>
+          <li>Two consolidated review rounds</li>
+          <li>90-min live team training + recorded session</li>
+          <li>21–30 business day delivery</li>
+        </ul>
+        <a href="#contact" class="pcta pcta-outline">Apply for Tier 3</a>
+      </div>
+
+      <div class="price-card">
+        <p class="price-tier">Tier 4 · Licensing</p>
+        <h3 class="price-name">White-Label &amp; Licensing</h3>
+        <div class="price-amount" style="font-size:28px; line-height:1.1; margin: 20px 0 4px;">$7,500–<br>$15,000+</div>
+        <p class="price-period">upfront · structured per agreement · ongoing support quoted separately</p>
+        <p class="price-desc">For coaches, educators, agencies, and organizations that want to adapt, brand, distribute, or commercially use the 4 artisa Creative OPS framework.</p>
+        <ul class="price-feats">
+          <li>Internal organizational license</li>
+          <li>Limited white-label implementation</li>
+          <li>Multi-client deployment rights</li>
+          <li>Agency implementation rights</li>
+          <li>Educational / cohort-use license</li>
+          <li>Custom strategic partnership</li>
+          <li>Every arrangement structured individually</li>
+        </ul>
+        <a href="#contact" class="pcta pcta-outline">Start a Conversation</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <p class="section-eyebrow">Apply for Founding Access</p>
+  <h2>Only 3–5 founding studios accepted.</h2>
+  <p>This is a partnership, not a software sign-up. Tell me about your studio and I'll be in touch personally within 48 hours.</p>
+  <form class="form" name="founding-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">    <input type="hidden" name="form-name" value="founding-application" />
+    <p style="display:none"><input name="bot-field" /></p>
+    <div class="form-row">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Studio Email" required />
+    </div>
+    <input type="text" placeholder="Studio Name" />
+    <select required>
+      <option value="" disabled selected>How are you currently managing operations?</option>
+      <option>Google Sheets + Email</option>
+      <option>Notion or Airtable</option>
+      <option>Studio Designer / Mydoma / DesignFiles</option>
+      <option>Multiple disconnected tools</option>
+      <option>Nothing formal — that's the problem</option>
+    </select>
+    <select>
+      <option value="" disabled selected>Which tier interests you?</option>
+      <option>Founding Partner Setup ($2,000 one-time)</option>
+      <option>Studio License ($97/month)</option>
+      <option>White-Label / Licensing</option>
+      <option>Not sure — just want to learn more</option>
+    </select>
+    <textarea placeholder="Tell me about your studio — number of active projects, team size, biggest operational challenge right now..."></textarea>
+    <button type="submit">Submit Application</button>
+  </form>
+</section>
+
+<footer>
+  <div class="footer-brand">4 Artisa Creative OPS</div>
+  <p>© 2026 Christopher Brian Arts · <a href="mailto:christopherbrian@christopherbrianarts.studio">christopherbrian@christopherbrianarts.studio</a></p>
+  <p style="font-size:11px;">Private Preview · Interior Design Studios Only · First Launch 2026</p>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  btn.textContent = 'Application received — I\'ll be in touch within 48 hours.';
+  btn.style.background = '#C4A96D';
+  btn.style.color = '#1A1A1A';
+  btn.disabled = true;
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+</body>
+</html>  }
+  .nav-cta:hover { background: var(--charcoal); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 120px 48px 80px;
+    max-width: 1200px; margin: 0 auto;
+    gap: 72px;
+  }
+  .hero-left { flex: 0 0 480px; }
+  .hero-eyebrow {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--red); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--red); }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(44px, 5.5vw, 72px); font-weight: 900; line-height: 1.02;
+    margin-bottom: 28px;
+  }
+  .hero h1 em { font-style: italic; color: var(--warm-gray); }
+  .hero-sub {
+    font-size: 17px; color: var(--charcoal); line-height: 1.75;
+    font-weight: 300; margin-bottom: 20px;
+  }
+  .hero-tagline {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: 15px; color: var(--warm-gray);
+    margin-bottom: 44px; padding-left: 16px;
+    border-left: 2px solid var(--gold);
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+  .btn-primary {
+    background: var(--black); color: #fff; padding: 16px 32px;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; border: none; cursor: pointer; transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--charcoal); }
+  .btn-ghost {
+    background: transparent; color: var(--black); padding: 16px 32px;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; border: 1.5px solid var(--black); cursor: pointer; transition: all 0.2s;
+  }
+  .btn-ghost:hover { background: var(--black); color: #fff; }
+  .hero-stats { display: flex; gap: 36px; }
+  .stat-item { }
+  .stat-num {
+    font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700;
+    display: block; line-height: 1;
+  }
+  .stat-label { font-size: 11px; color: var(--warm-gray); letter-spacing: 0.08em; margin-top: 4px; }
+
+  .hero-right { flex: 1; position: relative; }
+  .hero-screen-stack { position: relative; }
+  .hero-screen-main img {
+    width: 100%; border: 1px solid var(--border);
+    box-shadow: 0 32px 80px rgba(0,0,0,0.15);
+  }
+  .hero-screen-float {
+    position: absolute; bottom: -32px; left: -36px; width: 52%;
+    border: 1px solid var(--border); box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+    overflow: hidden;
+  }
+  .hero-screen-float img { width: 100%; display: block; }
+  .hero-founding-tag {
+    position: absolute; top: -16px; right: -16px;
+    background: var(--red); color: #fff;
+    padding: 10px 18px; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+  }
+
+  /* ── DEMO BAR ── */
+  .demo-bar {
+    background: var(--black); color: #fff;
+    padding: 18px 48px;
+    display: flex; align-items: center; justify-content: center; gap: 32px;
+    flex-wrap: wrap;
+  }
+  .demo-bar p { font-size: 14px; color: #C8C4BC; }
+  .demo-bar code {
+    background: rgba(255,255,255,0.1); padding: 4px 10px;
+    font-size: 13px; font-family: monospace; color: var(--gold);
+  }
+  .demo-bar a {
+    background: var(--red); color: #fff; padding: 10px 22px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  /* ── PROBLEM ── */
+  .problem {
+    background: var(--black); color: var(--cream);
+    padding: 100px 48px; text-align: center;
+  }
+  .problem h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 54px); font-weight: 700; margin-bottom: 20px;
+  }
+  .problem p {
+    font-size: 18px; color: #C0BCB5; max-width: 600px; margin: 0 auto 56px;
+    line-height: 1.7; font-weight: 300;
+  }
+  .chaos-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 680px; margin: 0 auto; }
+  .chaos-tag { padding: 9px 18px; border: 1px solid rgba(255,255,255,0.15); font-size: 13px; color: #A8A49C; }
+
+  /* ── DASHBOARD FEATURE ── */
+  .dashboard-feature {
+    padding: 100px 48px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .section-eyebrow {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--warm-gray); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 50px); font-weight: 700; margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 17px; color: var(--charcoal); line-height: 1.7; font-weight: 300;
+    max-width: 560px; margin-bottom: 48px;
+  }
+  .dashboard-preview {
+    position: relative; margin-bottom: 60px;
+  }
+  .dashboard-preview img {
+    width: 100%; border: 1px solid var(--border);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.1);
+  }
+  .metric-callouts {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 2px;
+  }
+  .metric-box {
+    background: var(--black); color: var(--cream);
+    padding: 24px 20px;
+  }
+  .metric-box .m-label { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: #808080; margin-bottom: 6px; }
+  .metric-box .m-val { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; }
+  .metric-box .m-sub { font-size: 11px; color: #808080; margin-top: 4px; }
+  .metric-box.highlight .m-val { color: var(--gold); }
+
+  /* ── FEATURES GRID ── */
+  .features { padding: 0 48px 100px; max-width: 1200px; margin: 0 auto; }
+
+  .feature-block {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 72px; align-items: center; margin-bottom: 100px;
+    padding-top: 100px; border-top: 1px solid var(--border);
+  }
+  .feature-block.reverse { }
+  .feature-block.reverse .feature-text { order: 2; }
+  .feature-block.reverse .feature-img { order: 1; }
+
+  .feat-tag {
+    display: inline-block; font-size: 9px; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--warm-gray); border: 1px solid var(--border);
+    padding: 5px 12px; margin-bottom: 20px;
+  }
+  .feature-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3vw, 38px); font-weight: 700;
+    margin-bottom: 16px; line-height: 1.15;
+  }
+  .feature-text p { font-size: 16px; color: var(--charcoal); line-height: 1.75; font-weight: 300; margin-bottom: 20px; }
+  .feat-list { list-style: none; }
+  .feat-list li {
+    font-size: 14px; color: var(--charcoal); padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .feat-list li::before { content: "—"; color: var(--warm-gray); flex-shrink: 0; }
+
+  .feature-img img {
+    width: 100%; border: 1px solid var(--border);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.09);
+  }
+
+  /* ── FINANCIALS HIGHLIGHT ── */
+  .financials-section {
+    background: var(--light-bg); padding: 100px 48px;
+  }
+  .financials-inner { max-width: 1200px; margin: 0 auto; }
+  .fin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+  .fin-numbers {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 36px;
+  }
+  .fin-box { background: var(--black); color: var(--cream); padding: 24px 20px; }
+  .fin-box .fl { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: #888; margin-bottom: 6px; }
+  .fin-box .fv { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; }
+  .fin-box .fs { font-size: 11px; color: #888; margin-top: 4px; }
+  .fin-box.accent .fv { color: var(--gold); }
+
+  /* ── AI SECTION ── */
+  .ai-section { padding: 100px 48px; text-align: center; }
+  .ai-inner { max-width: 1100px; margin: 0 auto; }
+  .ai-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px; margin-top: 60px;
+  }
+  .ai-card { background: var(--black); color: var(--cream); padding: 40px 32px; text-align: left; }
+  .ai-card-icon { font-size: 20px; margin-bottom: 20px; color: var(--gold); }
+  .ai-card h4 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+  .ai-card p { font-size: 14px; color: #A8A49C; line-height: 1.65; }
+
+  /* ── GALLERY ── */
+  .gallery { padding: 100px 48px; background: var(--black); }
+  .gallery-inner { max-width: 1200px; margin: 0 auto; }
+  .gallery .section-title { color: var(--cream); }
+  .gallery .section-eyebrow { color: var(--gold); }
+  .gallery-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 3px; margin-top: 48px;
+  }
+  .gallery-item { position: relative; overflow: hidden; aspect-ratio: 16/10; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+  .gallery-item:hover img { transform: scale(1.05); }
+  .gallery-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: rgba(26,26,26,0.9); color: #fff;
+    padding: 8px 14px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    transform: translateY(100%); transition: transform 0.3s;
+  }
+  .gallery-item:hover .gallery-label { transform: translateY(0); }
+  .gallery-item.wide { grid-column: span 2; }
+
+  /* ── LOGIN SHOWCASE ── */
+  .login-showcase {
+    padding: 100px 48px;
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
+  }
+  .login-showcase img {
+    width: 100%; border: 1px solid var(--border);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.12);
+  }
+  .login-text h2 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 3.5vw, 46px); font-weight: 700; margin-bottom: 16px; }
+  .login-text p { font-size: 16px; color: var(--charcoal); line-height: 1.75; font-weight: 300; margin-bottom: 28px; }
+  .demo-credentials {
+    background: var(--black); color: var(--cream); padding: 24px 28px;
+    border-left: 3px solid var(--red);
+  }
+  .demo-credentials p { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-gray); margin-bottom: 12px; font-weight: 500; }
+  .demo-credentials .cred { font-size: 14px; color: var(--cream); margin-bottom: 6px; }
+  .demo-credentials .cred span { color: var(--gold); font-family: monospace; }
+  .demo-credentials a {
+    display: inline-block; margin-top: 16px;
+    background: var(--red); color: #fff; padding: 10px 20px;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none;
+  }
+
+  /* ── PRICING ── */
+  .pricing { background: var(--black); color: var(--cream); padding: 100px 48px; }
+  .pricing-inner { max-width: 1100px; margin: 0 auto; }
+  .pricing .section-title { color: var(--cream); margin-bottom: 8px; }
+  .pricing .section-eyebrow { color: var(--gold); }
+  .pricing-intro { font-size: 17px; color: #B0ADA8; font-weight: 300; margin-bottom: 60px; max-width: 540px; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+  .price-card { background: #222; padding: 44px 36px; position: relative; }
+  .price-card.featured { background: #fff; color: var(--black); }
+  .founding-pill {
+    position: absolute; top: 0; right: 0;
+    background: var(--gold); color: var(--black);
+    font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 6px 14px;
+  }
+  .price-tier { font-size: 9px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #888; margin-bottom: 10px; }
+  .price-card.featured .price-tier { color: var(--warm-gray); }
+  .price-name { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; margin-bottom: 4px; line-height: 1.2; }
+  .price-amount { font-size: 44px; font-weight: 300; letter-spacing: -0.02em; margin: 20px 0 4px; }
+  .price-amount sup { font-size: 20px; vertical-align: super; }
+  .price-period { font-size: 12px; color: #888; margin-bottom: 28px; }
+  .price-card.featured .price-period { color: var(--warm-gray); }
+  .price-desc { font-size: 14px; color: #A8A49C; line-height: 1.65; margin-bottom: 28px; }
+  .price-card.featured .price-desc { color: var(--charcoal); }
+  .price-feats { list-style: none; margin-bottom: 36px; }
+  .price-feats li { font-size: 13px; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; gap: 10px; }
+  .price-card.featured .price-feats li { border-bottom-color: var(--border); color: var(--charcoal); }
+  .price-feats li::before { content: "✓"; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+  .pcta {
+    display: block; text-align: center; padding: 14px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    text-decoration: none; cursor: pointer; border: none; transition: opacity 0.2s;
+  }
+  .pcta:hover { opacity: 0.85; }
+  .pcta-gold { background: var(--gold); color: var(--black); }
+  .pcta-outline { background: transparent; border: 1px solid rgba(255,255,255,0.25); color: #fff; }
+  .pcta-outline:hover { background: rgba(255,255,255,0.07); opacity: 1; }
+
+  /* ── CONTACT ── */
+  .contact { padding: 100px 48px; max-width: 680px; margin: 0 auto; text-align: center; }
+  .contact h2 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 4vw, 48px); font-weight: 700; margin-bottom: 16px; }
+  .contact > p { font-size: 17px; color: var(--charcoal); line-height: 1.7; font-weight: 300; margin-bottom: 48px; }
+  .form { display: flex; flex-direction: column; gap: 14px; text-align: left; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form input, .form textarea, .form select {
+    width: 100%; padding: 14px 16px;
+    border: 1.5px solid var(--border); background: #fff;
+    font-family: 'Inter', sans-serif; font-size: 14px; color: var(--black);
+    outline: none; transition: border-color 0.2s; -webkit-appearance: none;
+  }
+  .form input:focus, .form textarea:focus, .form select:focus { border-color: var(--black); }
+  .form textarea { min-height: 110px; resize: vertical; }
+  .form button {
+    background: var(--black); color: #fff; padding: 16px 36px; border: none;
+    font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    cursor: pointer; align-self: flex-start; transition: background 0.2s;
+  }
+  .form button:hover { background: var(--charcoal); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black); color: #888;
+    padding: 40px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+    border-top: 1px solid #333;
+  }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--cream); }
+  footer p { font-size: 12px; }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .hero { flex-direction: column; padding: 110px 24px 60px; gap: 48px; }
+    .hero-left { flex: none; }
+    .hero-screen-float { display: none; }
+    .feature-block, .fin-grid, .login-showcase { grid-template-columns: 1fr; gap: 40px; }
+    .feature-block.reverse .feature-text { order: unset; }
+    .feature-block.reverse .feature-img { order: unset; }
+    .ai-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-item.wide { grid-column: span 1; }
+    .metric-callouts { grid-template-columns: 1fr 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; gap: 2px; }
+    .features, .dashboard-feature, .financials-section, .ai-section, .gallery, .contact, .pricing { padding-left: 24px; padding-right: 24px; }
+    footer { flex-direction: column; text-align: center; padding: 32px 24px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-icon">4</div>
+    <div class="nav-logo-text">4 artisa <span>Creative OPS</span></div>
+  </a>
+  <div class="nav-right">
+    <a href="#demo" class="nav-demo">Explore Demo</a>
+    <a href="#contact" class="nav-cta">Apply for Access</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Private Preview · Founding Studios Only · 2026</p>
+    <h1>The studio command center <em>interior designers</em> have been waiting for.</h1>
+    <p class="hero-sub">4 Artisa Creative OPS brings your clients, projects, financials, leads, vendors, and AI workflows into one premium, editorial workspace — built by an artist, for artists.</p>
+    <p class="hero-tagline">Made by an artist, for artists, for the art.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Apply for Founding Access</a>
+      <a href="#demo" class="btn-ghost">Explore the Demo</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">3–5</span>
+        <p class="stat-label">Founding Studios Only</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">6</span>
+        <p class="stat-label">Core Modules</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">AI</span>
+        <p class="stat-label">Workflows Built In</p>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-screen-stack">
+      <div class="hero-founding-tag">Founding Preview</div>
+      <div class="hero-screen-main">
+        <img src="screen13.webp" alt="4 Artisa Studio Dashboard" />
+      </div>
+      <div class="hero-screen-float">
+        <img src="screen14.webp" alt="Login — Enter the Studio" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO BAR -->
+<div class="demo-bar" id="demo">
+  <p>🎬 Live demo studio available right now — no signup required.</p>
+  <div>
+    <p style="font-size:12px; color:#888; margin-bottom:4px;">Demo credentials</p>
+    <code>hello@4artisa.studio</code> &nbsp;/&nbsp; <code>4artisa2026</code>
+  </div>
+  <a href="mailto:christopherbrian@christopherbrianarts.studio">Request Demo Access →</a>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <h2>Your studio is scattered across a dozen tools.</h2>
+  <p>Most interior design studios manage a six-figure business across spreadsheets, sticky notes, email threads, and memory. There's a better way.</p>
+  <div class="chaos-grid">
+    <div class="chaos-tag">Email Threads</div>
+    <div class="chaos-tag">Google Sheets</div>
+    <div class="chaos-tag">Sticky Notes</div>
+    <div class="chaos-tag">Project Board Apps</div>
+    <div class="chaos-tag">Vendor Text Threads</div>
+    <div class="chaos-tag">Paper Intake Forms</div>
+    <div class="chaos-tag">Separate Invoice Software</div>
+    <div class="chaos-tag">PDF Pricing Guides</div>
+    <div class="chaos-tag">Shared Folder Chaos</div>
+    <div class="chaos-tag">Mental Task Lists</div>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section class="dashboard-feature">
+  <p class="section-eyebrow">Studio Dashboard</p>
+  <h2 class="section-title">Welcome back. Here's everything.</h2>
+  <p class="section-sub">The moment you log in, your studio is visible. Live metrics across clients, projects, tasks, and revenue — all at a glance, all in one place.</p>
+  <div class="dashboard-preview">
+    <img src="screen13.webp" alt="Studio Dashboard — Welcome Back Artisa" />
+  </div>
+  <div class="metric-callouts">
+    <div class="metric-box">
+      <p class="m-label">Revenue · Paid</p>
+      <div class="m-val">$21,420</div>
+      <p class="m-sub">received this cycle</p>
+    </div>
+    <div class="metric-box highlight">
+      <p class="m-label">Revenue · Pending</p>
+      <div class="m-val">$11,480</div>
+      <p class="m-sub">awaiting payment</p>
+    </div>
+    <div class="metric-box">
+      <p class="m-label">Active Projects</p>
+      <div class="m-val">4</div>
+      <p class="m-sub">2 in progress</p>
+    </div>
+    <div class="metric-box">
+      <p class="m-label">Open Tasks</p>
+      <div class="m-val">11</div>
+      <p class="m-sub">this cycle</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+
+  <!-- Financials -->
+  <div class="feature-block">
+    <div class="feature-text">
+      <span class="feat-tag">Financials</span>
+      <h3>Know your numbers. Every project, every margin.</h3>
+      <p>Track retail price, trade cost, profit, and margin percentage on every single project. No more guessing if a job was actually profitable. 4 Artisa shows you the business behind the art.</p>
+      <ul class="feat-list">
+        <li>Retail vs. trade cost per project</li>
+        <li>Profit and margin % calculated automatically</li>
+        <li>Project status: Planning / In Progress</li>
+        <li>Revenue dashboard — paid vs. pending</li>
+        <li>Full financial overview at studio level</li>
+      </ul>
+    </div>
+    <div class="feature-img">
+      <img src="screen12.webp" alt="Project Financials — Profit & Margin" />
+    </div>
+  </div>
+
+  <!-- Pipeline -->
+  <div class="feature-block reverse">
+    <div class="feature-text">
+      <span class="feat-tag">Leads & Pipeline</span>
+      <h3>Every inquiry tracked from first contact to converted.</h3>
+      <p>Manage your full lead pipeline — New, Contacted, Qualified, Converted, Lost — with lead source tracking (Instagram DM, Pinterest, Website Form, Referral). Never lose a prospect in your inbox again.</p>
+      <ul class="feat-list">
+        <li>Pipeline stages: New → Qualified → Converted</li>
+        <li>Lead source tracking per inquiry</li>
+        <li>Prep checklists + follow-up drafts ready to send</li>
+        <li>Referral chain tracking (e.g. Referral · Sarah Mitchell)</li>
+        <li>One-click to open full lead record</li>
+      </ul>
+    </div>
+    <div class="feature-img">
+      <img src="screen11.webp" alt="Leads & Consultations Pipeline" />
+    </div>
+  </div>
+
+  <!-- Client CRM -->
+  <div class="feature-block">
+    <div class="feature-text">
+      <span class="feat-tag">Client CRM</span>
+      <h3>Every client detail, exactly where you need it.</h3>
+      <p>Full client profiles with style preferences, budget, timeline, project context, and communication notes. One click generates an AI-powered Client Snapshot so you're always prepared before a call.</p>
+      <ul class="feat-list">
+        <li>Complete client profiles with project context</li>
+        <li>Style preferences, budget, and timeline fields</li>
+        <li>AI Snapshot — instant client brief</li>
+        <li>Photo and floor plan attachments</li>
+        <li>Active / Lead / Completed status</li>
+      </ul>
+    </div>
+    <div class="feature-img">
+      <img src="screen10.webp" alt="Client CRM" />
+    </div>
+  </div>
+
+  <!-- Project Ops -->
+  <div class="feature-block reverse">
+    <div class="feature-text">
+      <span class="feat-tag">Project Operations</span>
+      <h3>Every project stage tracked and summarized by AI.</h3>
+      <p>Manage status, materials, rooms, square footage, design style, timelines, and budgets. Generate AI Project Summaries and Design Summaries in one click — no more writing updates from scratch.</p>
+      <ul class="feat-list">
+        <li>Full project records linked to clients</li>
+        <li>Status: Planning → Procurement → Installation</li>
+        <li>Materials, rooms, and space type fields</li>
+        <li>AI Project Summary + Design Summary</li>
+        <li>Structural changes and property status</li>
+      </ul>
+    </div>
+    <div class="feature-img">
+      <img src="screen9.webp" alt="Project Operations" />
+    </div>
+  </div>
+
+  <!-- Tasks -->
+  <div class="feature-block">
+    <div class="feature-text">
+      <span class="feat-tag">Workflow & Tasks</span>
+      <h3>Your week, organized by what actually matters.</h3>
+      <p>Tasks sorted into four lanes: Priority, Admin, Marketing, and Client. Due dates visible across every project. One click generates a Weekly AI Studio Summary so you start every week with clarity.</p>
+      <ul class="feat-list">
+        <li>Priority / Admin / Marketing / Client lanes</li>
+        <li>Due dates visible across all projects</li>
+        <li>Weekly AI Studio Summary</li>
+        <li>Projects in motion + priority tasks at a glance</li>
+      </ul>
+    </div>
+    <div class="feature-img">
+      <img src="screen7.webp" alt="Workflow & Tasks" />
+    </div>
+  </div>
+
+  <!-- Vendors -->
+  <div class="feature-block reverse">
+    <div class="feature-text">
+      <span class="feat-tag">Vendor Library</span>
+      <h3>Your trade relationships, finally organized.</h3>
+      <p>Store every vendor with trade discount, lead times, contact details, notes, and linked projects. Categorized by Furniture, Lighting, Textiles, and more. Your entire trade network, searchable in seconds.</p>
+      <ul class="feat-list">
+        <li>Trade discount + lead time per vendor</li>
+        <li>Categorized by type: Furniture, Lighting, Textiles</li>
+        <li>Notes linked to client projects</li>
+        <li>Website links and full contact info</li>
+      </ul>
+    </div>
+    <div class="feature-img">
+      <img src="screen6.webp" alt="Vendor Library" />
+    </div>
+  </div>
+
+  <!-- Ops Library -->
+  <div class="feature-block">
+    <div class="feature-text">
+      <span class="feat-tag">Ops & Library</span>
+      <h3>Your studio's processes, finally written down.</h3>
+      <p>SOPs, email templates with merge tags, pricing guides, brand guidelines, content calendars, and client intake forms — all in one filterable, editable library. The engine room of a professional studio.</p>
+      <ul class="feat-list">
+        <li>Email templates with {'{{'}merge_tags{'}}'}</li>
+        <li>Pricing guides and service packages</li>
+        <li>Onboarding SOPs and checklists</li>
+        <li>Shareable client intake forms</li>
+        <li>Monthly AI Studio Summary</li>
+      </ul>
+    </div>
+    <div class="feature-img">
+      <img src="screen1.webp" alt="Ops & Library" />
+    </div>
+  </div>
+
+</section>
+
+<!-- AI -->
+<section class="ai-section">
+  <div class="ai-inner">
+    <p class="section-eyebrow">AI-Assisted Workflows</p>
+    <h2 class="section-title">Your AI studio assistant is built in.</h2>
+    <p class="section-sub" style="margin:0 auto 0; text-align:center;">Not bolted on. Not a chatbot. Real AI workflows woven into every module — so your studio moves faster without burning you out.</p>
+    <div class="ai-grid">
+      <div class="ai-card">
+        <div class="ai-card-icon">✦</div>
+        <h4>Client Snapshot</h4>
+        <p>One click. Full AI brief on your client — style, budget, project stage, communication notes — ready before every call.</p>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">✦</div>
+        <h4>Design Summary</h4>
+        <p>Generate a polished design narrative for any project — concept, materials, style direction — instantly, in your voice.</p>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">✦</div>
+        <h4>Follow-Up Draft</h4>
+        <p>Never write a follow-up email from scratch. AI drafts client communications tailored to your studio's brand voice.</p>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">✦</div>
+        <h4>Lead Summary</h4>
+        <p>New inquiry? AI reviews the intake, summarizes the project, and suggests your next action — before you get on the call.</p>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">✦</div>
+        <h4>Weekly Studio Summary</h4>
+        <p>Start every week with an AI overview of active projects, priority tasks, and studio priorities — generated in seconds.</p>
+      </div>
+      <div class="ai-card">
+        <div class="ai-card-icon">✦</div>
+        <h4>Auto-Tag Assets</h4>
+        <p>Upload mood boards and inspiration. AI automatically tags by style, material, and color palette — no manual sorting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGIN SHOWCASE -->
+<section class="login-showcase" id="demo-section">
+  <img src="screen14.webp" alt="4 Artisa Login — Enter the Studio" />
+  <div class="login-text">
+    <p class="section-eyebrow">Live Demo Access</p>
+    <h2>See it before you commit.</h2>
+    <p>The demo studio is pre-loaded with four fictional interior design clients across different project stages — so you can explore every module, click every button, and experience the full system before applying for founding access.</p>
+    <div class="demo-credentials">
+      <p>Studio Demo Access</p>
+      <div class="cred">Email: <span>hello@4artisa.studio</span></div>
+      <div class="cred">Password: <span>4artisa2026</span></div>
+      <a href="mailto:christopherbrian@christopherbrianarts.studio">Request Live Demo Link →</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="gallery-inner">
+    <p class="section-eyebrow">Inside the System</p>
+    <h2 class="section-title" style="margin-bottom:8px;">Every screen, purpose-built.</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item wide">
+        <img src="screen14.webp" alt="Login" />
+        <div class="gallery-label">Login — Enter the Studio</div>
+      </div>
+      <div class="gallery-item">
+        <img src="screen13.webp" alt="Dashboard" />
+        <div class="gallery-label">Studio Dashboard</div>
+      </div>
+      <div class="gallery-item">
+        <img src="screen12.webp" alt="Financials" />
+        <div class="gallery-label">Project Financials</div>
+      </div>
+      <div class="gallery-item">
+        <img src="screen11.webp" alt="Pipeline" />
+        <div class="gallery-label">Leads & Pipeline</div>
+      </div>
+      <div class="gallery-item">
+        <img src="screen10.webp" alt="Client CRM" />
+        <div class="gallery-label">Client CRM</div>
+      </div>
+      <div class="gallery-item wide">
+        <img src="screen9.webp" alt="Projects" />
+        <div class="gallery-label">Project Operations</div>
+      </div>
+      <div class="gallery-item">
+        <img src="screen8.webp" alt="Services" />
+        <div class="gallery-label">Services & Pricing</div>
+      </div>
+      <div class="gallery-item">
+        <img src="screen7.webp" alt="Tasks" />
+        <div class="gallery-label">Workflow & Tasks</div>
+      </div>
+      <div class="gallery-item">
+        <img src="screen6.webp" alt="Vendors" />
+        <div class="gallery-label">Vendor Library</div>
+      </div>
+      <div class="gallery-item">
+        <img src="screen5.webp" alt="Forms" />
+        <div class="gallery-label">Client Forms</div>
+      </div>
+      <div class="gallery-item">
+        <img src="screen4.webp" alt="Assets" />
+        <div class="gallery-label">Asset Management</div>
+      </div>
+      <div class="gallery-item">
+        <img src="screen1.webp" alt="Ops" />
+        <div class="gallery-label">Ops & Library</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <p class="section-eyebrow">Service Tiers</p>
+    <h2 class="section-title">Four tiers. One framework.</h2>
+    <p class="pricing-intro">Whether you're a solo designer, a boutique team, a growing agency, or an organization looking to license — there's a tier built for where you are right now.</p>
+    <div class="pricing-grid">
+
+      <!-- TIER 1 -->
+      <div class="price-card">
+        <p class="price-tier">Tier 1 · Managed</p>
+        <h3 class="price-name">Solo Studio OPS Foundation</h3>
+        <div class="price-amount"><sup>$</sup>1,500</div>
+        <p class="price-period">+ $59/mo managed hosting · $750 deposit to begin</p>
+        <p class="price-desc">For solo interior designers. 4 artisa manages your hosting, database, and infrastructure — you just log in and run your studio.</p>
+        <ul class="price-feats">
+          <li>Studio Command Center + dashboard</li>
+          <li>Client CRM + Project Operations</li>
+          <li>Lead Intake manager</li>
+          <li>Vendor & Materials Library</li>
+          <li>AI: Client Snapshots, Lead Summaries, Follow-Up Drafts</li>
+          <li>Foundational studio branding applied</li>
+          <li>Managed hosting — no accounts to create</li>
+          <li>14-day delivery timeline</li>
+        </ul>
+        <a href="#contact" class="pcta pcta-outline">Apply for Tier 1</a>
+      </div>
+
+      <!-- TIER 2 -->
+      <div class="price-card featured">
+        <div class="founding-pill">Most Popular</div>
+        <p class="price-tier">Tier 2 · Client-Owned</p>
+        <h3 class="price-name">Boutique Studio OPS</h3>
+        <div class="price-amount"><sup>$</sup>3,500</div>
+        <p class="price-period">one-time · $1,750 deposit to begin · no monthly fee to 4 artisa</p>
+        <p class="price-desc">For boutique studios with a small team. You own the hosting, the data, the infrastructure — 4 artisa builds and deploys everything, then hands it over.</p>
+        <ul class="price-feats">
+          <li>Everything in Tier 1</li>
+          <li>Team access + role-based permissions</li>
+          <li>Expanded workflow configuration</li>
+          <li>Full AI workflow suite included</li>
+          <li>Expanded data ingestion</li>
+          <li>Client-owned hosting deployment</li>
+          <li>Team onboarding + handoff session</li>
+          <li>14–21 business day delivery</li>
+        </ul>
+        <a href="#contact" class="pcta pcta-gold">Apply for Tier 2</a>
+      </div>
+
+      <!-- TIER 3 -->
+      <div class="price-card">
+        <p class="price-tier">Tier 3 · Client-Owned</p>
+        <h3 class="price-name">Creative Team OPS</h3>
+        <div class="price-amount"><sup>$</sup>4,800</div>
+        <p class="price-period">one-time · $2,400 deposit to begin · no monthly fee to 4 artisa</p>
+        <p class="price-desc">For growing studios, agencies, and design firms. A fully configured operations system with integrations, automations, data migration, and live team training.</p>
+        <ul class="price-feats">
+          <li>90-min discovery + workflow mapping session</li>
+          <li>6 core operational workflows configured</li>
+          <li>3 included integrations (Google Drive, Stripe, Image Engine) + 3 additional</li>
+          <li>Standard automations included</li>
+          <li>Data migration up to 500 records</li>
+          <li>Two consolidated review rounds</li>
+          <li>90-min live team training + recorded session</li>
+          <li>21–30 business day delivery</li>
+        </ul>
+        <a href="#contact" class="pcta pcta-outline">Apply for Tier 3</a>
+      </div>
+
+      <!-- TIER 4 -->
+      <div class="price-card">
+        <p class="price-tier">Tier 4 · Licensing</p>
+        <h3 class="price-name">White-Label &amp; Licensing</h3>
+        <div class="price-amount" style="font-size:28px; line-height:1.1; margin: 20px 0 4px;">$7,500–<br>$15,000+</div>
+        <p class="price-period">upfront · structured per agreement · ongoing support quoted separately</p>
+        <p class="price-desc">For coaches, educators, agencies, and organizations that want to adapt, brand, distribute, or commercially use the 4 artisa Creative OPS framework.</p>
+        <ul class="price-feats">
+          <li>Internal organizational license</li>
+          <li>Limited white-label implementation</li>
+          <li>Multi-client deployment rights</li>
+          <li>Agency implementation rights</li>
+          <li>Educational / cohort-use license</li>
+          <li>Custom strategic partnership</li>
+          <li>Every arrangement structured individually</li>
+        </ul>
+        <a href="#contact" class="pcta pcta-outline">Start a Conversation</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <p class="section-eyebrow">Apply for Founding Access</p>
+  <h2>Only 3–5 founding studios accepted.</h2>
+  <p>This is a partnership, not a software sign-up. Tell me about your studio and I'll be in touch personally within 48 hours.</p>
+  <form class="form" name="founding-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">    <input type="hidden" name="form-name" value="founding-application" />
+    <p style="display:none"><input name="bot-field" /></p>
+    <div class="form-row">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Studio Email" required />
+    </div>
+    <input type="text" placeholder="Studio Name" />
+    <select required>
+      <option value="" disabled selected>How are you currently managing operations?</option>
+      <option>Google Sheets + Email</option>
+      <option>Notion or Airtable</option>
+      <option>Studio Designer / Mydoma / DesignFiles</option>
+      <option>Multiple disconnected tools</option>
+      <option>Nothing formal — that's the problem</option>
+    </select>
+    <select>
+      <option value="" disabled selected>Which tier interests you?</option>
+      <option>Founding Partner Setup ($2,000 one-time)</option>
+      <option>Studio License ($97/month)</option>
+      <option>White-Label / Licensing</option>
+      <option>Not sure — just want to learn more</option>
+    </select>
+    <textarea placeholder="Tell me about your studio — number of active projects, team size, biggest operational challenge right now..."></textarea>
+    <button type="submit">Submit Application</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">4 Artisa Creative OPS</div>
+  <p>© 2026 Christopher Brian Arts · <a href="mailto:christopherbrian@christopherbrianarts.studio">christopherbrian@christopherbrianarts.studio</a></p>
+  <p style="font-size:11px;">Private Preview · Interior Design Studios Only · First Launch 2026</p>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  btn.textContent = 'Application received — I\'ll be in touch within 48 hours.';
+  btn.style.background = '#C4A96D';
+  btn.style.color = '#1A1A1A';
+  btn.disabled = true;
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+</body>
+</html>
