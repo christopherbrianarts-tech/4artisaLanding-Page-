@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4 Artisa Creative OPS | Branded Studio Management Systems for Interior Designers</title>
-    <!-- Fonts -->
+    <title>4 Artisa Creative OPS — Your studio. One system. Built around your brand.</title>
+    
+    <!-- Google Fonts: Cormorant Garamond for Serifs/Accents, Inter for Clean UI/Body -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Color Palette & Base Variables */
+        /* Base Reset & Variables */
         :root {
             --bg-color: #0a0a0a;
             --text-color: #f0ece4;
             --accent-color: #c9a84c;
-            --accent-hover: #e0be5f;
-            --surface-color: #141414;
-            --surface-border: #262626;
-            --text-muted: #a39e93;
+            --accent-hover: #dec16b;
+            --card-bg: #141414;
+            --card-border: #1e1e1e;
+            --nav-bg: rgba(10, 10, 10, 0.75);
+            --font-display: 'Cormorant Garamond', serif;
+            --font-body: 'Inter', sans-serif;
             --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Reset & Base Styles */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -33,8 +35,9 @@
             scroll-behavior: smooth;
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-body);
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
@@ -42,569 +45,682 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
-            letter-spacing: -0.02em;
-        }
-
-        /* Common Layout Utilities */
+        /* Utility Styles */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        section {
-            padding: 100px 0;
-            position: relative;
+        .eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: block;
         }
 
-        /* Buttons & CTAs */
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-weight: 400;
+            line-height: 1.15;
+        }
+
+        h2 {
+            font-size: 2.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-weight: 300;
+            color: #b0aba0;
+            font-size: 1.05rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             padding: 0.85rem 2rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
             font-weight: 500;
             letter-spacing: 0.05em;
             text-transform: uppercase;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: var(--transition-smooth);
+            border-radius: 0px;
             cursor: pointer;
+            transition: var(--transition-smooth);
         }
 
-        .btn-primary {
+        .btn-gold {
             background-color: var(--accent-color);
-            color: #000;
+            color: #0a0a0a;
             border: 1px solid var(--accent-color);
         }
 
-        .btn-primary:hover {
+        .btn-gold:hover {
             background-color: var(--accent-hover);
             border-color: var(--accent-hover);
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(201, 168, 76, 0.15);
+            box-shadow: 0 10px 20px rgba(201, 168, 76, 0.15);
         }
 
-        .btn-secondary {
+        .btn-ghost {
             background-color: transparent;
             color: var(--text-color);
-            border: 1px solid var(--surface-border);
+            border: 1px solid rgba(240, 236, 228, 0.2);
+            margin-left: 1rem;
         }
 
-        .btn-secondary:hover {
-            border-color: var(--accent-color);
-            color: var(--accent-color);
+        .btn-ghost:hover {
+            border-color: var(--text-color);
+            background-color: rgba(240, 236, 228, 0.05);
             transform: translateY(-2px);
         }
 
-        /* Header / Nav Overlay */
-        header {
-            position: absolute;
+        /* Navigation */
+        nav {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 100;
-            padding: 2rem 0;
+            z-index: 1000;
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--card-border);
+            height: 80px;
+            display: flex;
+            align-items: center;
         }
 
-        .nav-container {
+        nav .container {
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
+            font-family: var(--font-display);
+            font-size: 2rem;
             font-weight: 500;
-            letter-spacing: 0.05em;
             color: var(--text-color);
-            text-decoration: none;
+            letter-spacing: -0.02em;
         }
 
         .logo span {
             color: var(--accent-color);
         }
 
+        .nav-btn {
+            padding: 0.65rem 1.5rem;
+            font-size: 0.75rem;
+        }
+
         /* Hero Section */
         .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-top: 150px;
-            padding-bottom: 50px;
-            background: radial-gradient(circle at 50% 30%, rgba(201, 168, 76, 0.05) 0%, rgba(10, 10, 10, 0) 70%);
-        }
-
-        .hero-content {
+            padding-top: 160px;
+            padding-bottom: 120px;
             text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            font-weight: 300;
-            max-width: 700px;
-            margin: 0 auto 2.5rem auto;
-            line-height: 1.7;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-bottom: 5rem;
-        }
-
-        .hero-image-wrapper {
             position: relative;
-            border-radius: 8px;
+            background: radial-gradient(circle at top, rgba(201, 168, 76, 0.05) 0%, rgba(10, 10, 10, 0) 70%);
+        }
+
+        .hero-img-container {
+            position: relative;
+            max-width: 1100px;
+            margin: 4rem auto 0 auto;
+            border: 1px solid var(--card-border);
+            border-radius: 4px;
             overflow: hidden;
-            border: 1px solid var(--surface-border);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
-            max-width: 1000px;
-            margin: 0 auto;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+            background-color: var(--card-bg);
+        }
+
+        .hero-img {
+            width: 100%;
+            display: block;
+            opacity: 0.95;
             transition: var(--transition-smooth);
         }
 
-        .hero-image-wrapper:hover {
-            border-color: rgba(201, 168, 76, 0.3);
+        .hero-img:hover {
             transform: scale(1.01);
+            opacity: 1;
         }
 
-        .hero-image-wrapper img {
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .hero h1 em {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 300;
+            color: var(--accent-color);
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto 2.5rem auto;
+            line-height: 1.6;
+        }
+
+        .hero-ctas {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Floating Dashboard Preview Card below Hero */
+        .dashboard-preview {
+            margin-top: -60px;
+            position: relative;
+            z-index: 10;
+            padding-bottom: 120px;
+        }
+
+        .preview-card {
+            max-width: 950px;
+            margin: 0 auto;
+            border: 1px solid var(--card-border);
+            background-color: var(--card-bg);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .preview-card img {
             width: 100%;
-            height: auto;
             display: block;
         }
 
         /* Problem Section */
-        .problem {
-            background-color: #0d0d0d;
-            border-top: 1px solid var(--surface-border);
-            border-bottom: 1px solid var(--surface-border);
+        .problem-section {
+            background-color: var(--bg-color);
+            padding: 120px 0;
+            text-align: center;
+            border-top: 1px solid var(--card-border);
         }
 
-        .section-header {
-            text-align: center;
+        .problem-header {
             max-width: 700px;
             margin: 0 auto 4.5rem auto;
         }
 
-        .section-header .subtitle {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .section-header h2 {
-            font-size: 3rem;
-            line-height: 1.2;
-        }
-
         .problem-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         .problem-card {
-            background-color: var(--surface-color);
-            border: 1px solid var(--surface-border);
-            border-radius: 6px;
-            padding: 3rem 2.5rem;
-            transition: var(--transition-smooth);
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 3rem 2rem;
+            text-align: left;
             position: relative;
-            overflow: hidden;
-        }
-
-        .problem-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 3px;
-            height: 0;
-            background-color: var(--accent-color);
             transition: var(--transition-smooth);
         }
 
         .problem-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(201, 168, 76, 0.2);
-            background-color: #171717;
-        }
-
-        .problem-card:hover::before {
-            height: 100%;
-        }
-
-        .problem-card .num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            color: rgba(201, 168, 76, 0.3);
-            margin-bottom: 1.5rem;
-            font-style: italic;
-        }
-
-        .problem-card p {
-            font-size: 1.15rem;
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--text-color);
-            line-height: 1.5;
-            font-weight: 300;
-        }
-
-        /* What is 4 Artisa Section */
-        .about {
-            background-color: var(--bg-color);
-        }
-
-        .about-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 5rem auto;
-        }
-
-        .about-intro p {
-            font-size: 1.35rem;
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 300;
-            color: var(--text-muted);
-            line-height: 1.8;
-        }
-
-        .about-images {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .about-img-box {
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--surface-border);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            transition: var(--transition-smooth);
-        }
-
-        .about-img-box:hover {
             border-color: rgba(201, 168, 76, 0.3);
-            transform: translateY(-4px);
+            transform: translateY(-5px);
         }
 
-        .about-img-box img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Features Section */
-        .features {
-            background-color: #0d0d0d;
-            border-top: 1px solid var(--surface-border);
-            border-bottom: 1px solid var(--surface-border);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-bottom: 6rem;
-        }
-
-        .feature-card {
-            background-color: var(--surface-color);
-            border: 1px solid var(--surface-border);
-            border-radius: 6px;
-            padding: 2.5rem;
-            transition: var(--transition-smooth);
-        }
-
-        .feature-card:hover {
-            border-color: rgba(201, 168, 76, 0.25);
-            background-color: #171717;
-            transform: translateY(-3px);
-        }
-
-        .feature-icon {
-            font-size: 1.8rem;
+        .problem-icon {
+            font-size: 1.5rem;
             color: var(--accent-color);
             margin-bottom: 1.5rem;
             display: inline-block;
         }
 
+        .problem-card p {
+            color: var(--text-color);
+            font-size: 1.15rem;
+            line-height: 1.5;
+            font-family: var(--font-display);
+            font-style: italic;
+        }
+
+        /* What is 4 Artisa */
+        .about-section {
+            padding: 120px 0;
+            border-top: 1px solid var(--card-border);
+            background: linear-gradient(180deg, var(--bg-color) 0%, var(--card-bg) 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .about-content {
+                grid-template-columns: 1.2fr 1.8fr;
+            }
+        }
+
+        .about-text {
+            max-width: 500px;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .about-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .about-gallery-item {
+            border: 1px solid var(--card-border);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-radius: 4px;
+        }
+
+        .about-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: var(--transition-smooth);
+        }
+
+        .about-gallery-item img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 120px 0;
+            background-color: var(--bg-color);
+            border-top: 1px solid var(--card-border);
+        }
+
+        .features-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 5rem auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 3rem 2rem;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(201, 168, 76, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon-wrapper {
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+
         .feature-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 1rem;
             color: var(--text-color);
         }
 
         .feature-card p {
             font-size: 0.95rem;
-            color: var(--text-muted);
             line-height: 1.6;
+            color: #9c978f;
         }
 
-        .features-showcase {
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-            max-width: 1000px;
-            margin: 0 auto;
+        /* Inline SVGs for elegant crisp look */
+        .feature-svg {
+            width: 32px;
+            height: 32px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
-        .showcase-item {
-            border-radius: 8px;
+        /* 3-Column Image Grid below Feature Cards */
+        .features-image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .grid-image-wrapper {
+            border: 1px solid var(--card-border);
+            border-radius: 4px;
             overflow: hidden;
-            border: 1px solid var(--surface-border);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            background-color: var(--card-bg);
+        }
+
+        .grid-image-wrapper img {
+            width: 100%;
+            display: block;
             transition: var(--transition-smooth);
         }
 
-        .showcase-item:hover {
-            border-color: rgba(201, 168, 76, 0.3);
-        }
-
-        .showcase-item img {
-            width: 100%;
-            height: auto;
-            display: block;
+        .grid-image-wrapper img:hover {
+            transform: scale(1.02);
         }
 
         /* How It Works Section */
-        .how-it-works {
-            background-color: var(--bg-color);
+        .how-section {
+            padding: 120px 0;
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--card-border);
         }
 
-        .steps-container {
+        .how-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 5rem auto;
+        }
+
+        .how-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 3rem;
-            margin-bottom: 6rem;
+            margin-bottom: 5rem;
         }
 
-        .step-item {
+        .how-step {
             position: relative;
         }
 
-        .step-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 4rem;
-            font-style: italic;
-            color: var(--accent-color);
+        .step-num {
+            font-family: var(--font-display);
+            font-size: 4.5rem;
             line-height: 1;
-            margin-bottom: 1rem;
+            font-weight: 300;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            display: block;
             opacity: 0.8;
         }
 
-        .step-item h3 {
-            font-size: 1.4rem;
+        .how-step h3 {
+            font-size: 1.5rem;
             margin-bottom: 1rem;
+            font-family: var(--font-body);
             font-weight: 500;
         }
 
-        .how-showcase {
+        .how-step p {
+            font-size: 1rem;
+            color: #b0aba0;
+        }
+
+        .how-gallery {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
         }
 
-        .how-img-box {
-            border-radius: 8px;
+        @media (max-width: 768px) {
+            .how-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .how-gallery-item {
+            border: 1px solid var(--card-border);
+            border-radius: 4px;
             overflow: hidden;
-            border: 1px solid var(--surface-border);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            transition: var(--transition-smooth);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
         }
 
-        .how-img-box:hover {
-            border-color: rgba(201, 168, 76, 0.3);
-            transform: translateY(-4px);
-        }
-
-        .how-img-box img {
+        .how-gallery-item img {
             width: 100%;
-            height: auto;
             display: block;
-        }
-
-        /* Founding Studio Section */
-        .founding-studio {
-            background-color: var(--bg-color);
-            padding: 60px 0;
-        }
-
-        .founding-card {
-            background: linear-gradient(135deg, #18150f 0%, #0d0d0d 100%);
-            border: 1px solid rgba(201, 168, 76, 0.3);
-            border-radius: 12px;
-            padding: 5rem 4rem;
-            text-align: center;
-            max-width: 950px;
-            margin: 0 auto;
-            box-shadow: 0 20px 50px rgba(201, 168, 76, 0.04);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .founding-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle, rgba(201, 168, 76, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .founding-card .badge {
-            background-color: rgba(201, 168, 76, 0.15);
-            color: var(--accent-color);
-            padding: 0.4rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(201, 168, 76, 0.2);
-        }
-
-        .founding-card h2 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-        }
-
-        .founding-card p {
-            font-size: 1.25rem;
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 3rem auto;
-            line-height: 1.7;
-        }
-
-        /* Pricing Section */
-        .pricing {
-            background-color: #0d0d0d;
-            border-top: 1px solid var(--surface-border);
-            border-bottom: 1px solid var(--surface-border);
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            align-items: stretch;
-        }
-
-        .pricing-card {
-            background-color: var(--surface-color);
-            border: 1px solid var(--surface-border);
-            border-radius: 8px;
-            padding: 3.5rem 2.5rem;
-            display: flex;
-            flex-direction: column;
             transition: var(--transition-smooth);
-            position: relative;
         }
 
-        .pricing-card.featured {
-            border-color: rgba(201, 168, 76, 0.4);
-            background: linear-gradient(180deg, #151515 0%, #111111 100%);
+        .how-gallery-item img:hover {
+            transform: scale(1.01);
         }
 
-        .pricing-card.featured::before {
-            content: 'Most Popular';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--accent-color);
-            color: #000;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 4px 14px;
-            border-radius: 20px;
+        /* App Gallery Section */
+        .gallery-section {
+            padding: 120px 0;
+            background-color: var(--bg-color);
+            border-top: 1px solid var(--card-border);
         }
 
-        .pricing-card:hover {
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .gallery-slider {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 2rem;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-color) var(--card-bg);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .gallery-slider::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .gallery-slider::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+
+        .gallery-slider::-webkit-scrollbar-thumb {
+            background-color: var(--card-border);
+            border-radius: 3px;
+        }
+
+        .gallery-slide {
+            flex: 0 0 450px;
+            scroll-snap-align: center;
+            border: 1px solid var(--card-border);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            background-color: var(--card-bg);
+            transition: var(--transition-smooth);
+        }
+
+        @media (max-width: 576px) {
+            .gallery-slide {
+                flex: 0 0 300px;
+            }
+        }
+
+        .gallery-slide:hover {
             transform: translateY(-5px);
             border-color: rgba(201, 168, 76, 0.3);
         }
 
-        .pricing-tier {
-            font-size: 0.85rem;
-            text-transform: uppercase;
+        .gallery-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Founding Studio CTA */
+        .founding-section {
+            padding: 120px 0;
+            background-color: var(--bg-color);
+            border-top: 1px solid var(--card-border);
+        }
+
+        .founding-box {
+            border: 1px solid var(--accent-color);
+            background: linear-gradient(135deg, rgba(201, 168, 76, 0.03) 0%, rgba(10, 10, 10, 0) 100%);
+            padding: 5rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .founding-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .founding-box-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .founding-box h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .founding-box p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            color: #c0baa8;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 120px 0;
+            background-color: var(--bg-color);
+            border-top: 1px solid var(--card-border);
+        }
+
+        .pricing-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 5rem auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            align-items: stretch;
+        }
+
+        .pricing-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 4rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            border-color: rgba(201, 168, 76, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .pricing-card.popular {
+            border-color: var(--accent-color);
+            background: linear-gradient(180deg, rgba(201, 168, 76, 0.02) 0%, rgba(20, 20, 20, 0) 100%);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-family: var(--font-body);
+            font-size: 0.65rem;
+            font-weight: 600;
             letter-spacing: 0.15em;
             color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 0.35rem 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .pricing-card-top h3 {
+            font-size: 2rem;
             margin-bottom: 1rem;
-        }
-
-        .pricing-card h3 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
-
-        .pricing-price {
-            margin-bottom: 2rem;
-            border-bottom: 1px solid var(--surface-border);
-            padding-bottom: 2rem;
-        }
-
-        .price-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.5rem;
             color: var(--text-color);
-            line-height: 1;
+        }
+
+        .price-tag {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
             font-weight: 300;
         }
 
-        .price-sub {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-top: 0.5rem;
+        .price-tag span {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: #9c978f;
         }
 
         .pricing-features {
             list-style: none;
-            margin-bottom: 3rem;
-            flex-grow: 1;
+            margin: 2.5rem 0;
+            padding: 0;
+            border-top: 1px solid var(--card-border);
+            padding-top: 2rem;
         }
 
         .pricing-features li {
             font-size: 0.95rem;
-            color: var(--text-muted);
+            color: #b0aba0;
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
@@ -612,73 +728,39 @@
         }
 
         .pricing-features li::before {
-            content: "✓";
+            content: "•";
             color: var(--accent-color);
-            font-weight: bold;
+            font-size: 1.25rem;
         }
 
-        .pricing-card .btn-contra {
+        .pricing-card .btn {
             width: 100%;
-            text-align: center;
-            padding: 1rem;
-            background-color: transparent;
-            border: 1px solid var(--surface-border);
-            color: var(--text-color);
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: var(--transition-smooth);
-            display: block;
-        }
-
-        .pricing-card .btn-contra:hover {
-            background-color: var(--text-color);
-            color: #000;
-            border-color: var(--text-color);
-        }
-
-        .pricing-card.featured .btn-contra {
-            background-color: var(--accent-color);
-            color: #000;
-            border-color: var(--accent-color);
-        }
-
-        .pricing-card.featured .btn-contra:hover {
-            background-color: var(--accent-hover);
-            border-color: var(--accent-hover);
         }
 
         /* Footer */
         footer {
-            background-color: var(--bg-color);
-            padding: 5rem 0 3rem 0;
-            border-top: 1px solid var(--surface-border);
+            background-color: #050505;
+            border-top: 1px solid var(--card-border);
+            padding: 80px 0 40px 0;
+            font-family: var(--font-body);
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
             margin-bottom: 4rem;
         }
 
-        .footer-brand h4 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
         .footer-brand p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            max-width: 350px;
+            font-size: 0.9rem;
+            max-width: 250px;
+            margin-bottom: 1.5rem;
         }
 
         .footer-links h5 {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: var(--accent-color);
@@ -687,314 +769,418 @@
 
         .footer-links ul {
             list-style: none;
+            padding: 0;
         }
 
-        .footer-links ul li {
-            margin-bottom: 0.75rem;
+        .footer-links li {
+            margin-bottom: 0.85rem;
         }
 
-        .footer-links ul li a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.95rem;
+        .footer-links a {
+            font-size: 0.9rem;
+            color: #9c978f;
             transition: var(--transition-smooth);
         }
 
-        .footer-links ul li a:hover {
+        .footer-links a:hover {
             color: var(--text-color);
+            padding-left: 4px;
         }
 
         .footer-bottom {
-            border-top: 1px solid var(--surface-border);
+            border-top: 1px solid var(--card-border);
             padding-top: 2rem;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.85rem;
-            color: #666;
+            font-size: 0.8rem;
+            color: #706c64;
         }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .hero h1 { font-size: 3.2rem; }
-            .problem-grid, .features-grid, .pricing-grid { grid-template-columns: repeat(2, 1fr); }
-            .steps-container { grid-template-columns: 1fr; gap: 2.5rem; }
-            .pricing-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+        .footer-bottom-links {
+            display: flex;
+            gap: 2rem;
         }
 
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .hero-buttons { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto 3rem auto; }
-            .problem-grid, .features-grid { grid-template-columns: 1fr; }
-            .about-images, .how-showcase { grid-template-columns: 1fr; }
-            .founding-card { padding: 3rem 2rem; }
-            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            h2 {
+                font-size: 2.2rem;
+            }
+            .hero {
+                padding-top: 140px;
+                padding-bottom: 80px;
+            }
+            .dashboard-preview {
+                margin-top: -30px;
+                padding-bottom: 80px;
+            }
+            .btn-ghost {
+                margin-left: 0;
+                margin-top: 1rem;
+                width: 100%;
+            }
+            .btn {
+                width: 100%;
+            }
+            .hero-ctas {
+                flex-direction: column;
+                width: 100%;
+                max-width: 320px;
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
-    <header>
-        <div class="container nav-container">
+    <!-- NAV -->
+    <nav>
+        <div class="container">
             <a href="#" class="logo">4 Artisa<span>.</span></a>
-            <div>
-                <a href="#features" class="btn btn-secondary" style="padding: 0.5rem 1.2rem; font-size: 0.8rem;">Explore Workspaces</a>
+            <a href="mailto:hello@4artisa.studio" class="btn btn-gold nav-btn">Apply for Founding Studio</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="eyebrow">CREATIVE OPERATIONS SPACE</span>
+                <h1>Your studio. One system.<br><em>Built around your brand.</em></h1>
+                <p class="hero-sub">A private, AI-powered operations workspace — designed specifically for your interior design studio, deployed and managed entirely by 4 Artisa.</p>
+                <div class="hero-ctas">
+                    <a href="mailto:hello@4artisa.studio" class="btn btn-gold">Apply for Founding Studio</a>
+                    <a href="#features" class="btn btn-ghost">See How It Works</a>
+                </div>
+            </div>
+            
+            <!-- screen_01 dramatic hero image -->
+            <div class="hero-img-container">
+                <img src="https://base44.app/api/apps/6a50cb047fd0b7d697d9c6fb/files/mp/public/6a50cb047fd0b7d697d9c6fb/d44abf158_screen_01.png" alt="4 Artisa Creative OPS Hero Login Workspace" class="hero-img">
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- FLOATING DASHBOARD PREVIEW -->
+    <section class="dashboard-preview">
         <div class="container">
-            <div class="hero-content">
-                <h1>Your studio. One system. Built around your brand.</h1>
-                <p>A private, AI-powered operations workspace — designed specifically for your interior design studio, deployed and managed entirely by 4 Artisa.</p>
-                <div class="hero-buttons">
-                    <a href="mailto:hello@4artisa.studio" class="btn btn-primary">Apply for Founding Studio</a>
-                    <a href="#features" class="btn btn-secondary">See How It Works</a>
-                </div>
-            </div>
-            <div class="hero-image-wrapper">
-                <img src="https://base44.app/api/apps/6a50cb047fd0b7d697d9c6fb/files/mp/public/6a50cb047fd0b7d697d9c6fb/7d29ce96c_c7820002e_1.png" alt="4 Artisa Workspace Dashboard Preview">
+            <!-- screen_02 floating welcome dashboard preview -->
+            <div class="preview-card">
+                <img src="https://base44.app/api/apps/6a50cb047fd0b7d697d9c6fb/files/mp/public/6a50cb047fd0b7d697d9c6fb/a68748822_screen_02.png" alt="4 Artisa Creative OPS Welcome Dashboard View">
             </div>
         </div>
     </section>
 
-    <!-- Problem Section -->
-    <section class="problem">
+    <!-- PROBLEM SECTION -->
+    <section class="problem-section">
         <div class="container">
-            <div class="section-header">
-                <span class="subtitle">The Administrative Burden</span>
-                <h2>Your talent is running the studio. Your tools are running you.</h2>
+            <div class="problem-header">
+                <span class="eyebrow">The Administrative Burden</span>
+                <h2>Your talent is running the studio.<br>Your tools are running you.</h2>
             </div>
             <div class="problem-grid">
                 <div class="problem-card">
-                    <div class="num">I</div>
-                    <p>Clients in your email. Projects in a spreadsheet. Follow-ups in your head.</p>
+                    <div class="problem-icon">✦</div>
+                    <p>“Clients in your email. Projects in a spreadsheet. Follow-ups in your head.”</p>
                 </div>
                 <div class="problem-card">
-                    <div class="num">II</div>
-                    <p>Every tool you use was built for someone else's business.</p>
+                    <div class="problem-icon">✦</div>
+                    <p>“Every tool you use was built for someone else's business.”</p>
                 </div>
                 <div class="problem-card">
-                    <div class="num">III</div>
-                    <p>You spend more time managing the admin than doing the work you love.</p>
+                    <div class="problem-icon">✦</div>
+                    <p>“You spend more time managing the admin than doing the work you love.”</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- What is 4 Artisa Section -->
-    <section class="about">
+    <!-- WHAT IS 4 ARTISA -->
+    <section class="about-section">
         <div class="container">
-            <div class="section-header">
-                <span class="subtitle">A Modern Alternative</span>
-                <h2>A studio command center built around the way you work.</h2>
-            </div>
-            <div class="about-intro">
-                <p>4 Artisa Creative OPS is a fully personalized, dark-mode operations workspace — configured with your branding, your workflow, and your clients in mind. You do not manage any technical infrastructure. You just log in and run your studio.</p>
-            </div>
-            <div class="about-images">
-                <div class="about-img-box">
-                    <img src="https://base44.app/api/apps/6a50cb047fd0b7d697d9c6fb/files/mp/public/6a50cb047fd0b7d697d9c6fb/42b0dcab5_19007f3f2_2.png" alt="Operational Setup Overview">
+            <div class="about-content">
+                <div class="about-text">
+                    <span class="eyebrow">A Modern Alternative</span>
+                    <h2>A studio command center built around the way you work.</h2>
+                    <p>4 Artisa Creative OPS is a fully personalized, dark-mode operations workspace — configured with your branding, your workflow, and your clients in mind. You do not manage any technical infrastructure. You just log in and run your studio.</p>
+                    <a href="mailto:hello@4artisa.studio" class="btn btn-gold">Inquire about your workspace</a>
                 </div>
-                <div class="about-img-box">
-                    <img src="https://base44.app/api/apps/6a50cb047fd0b7d697d9c6fb/files/mp/public/6a50cb047fd0b7d697d9c6fb/163183b28_0170af305_3.png" alt="Workspace Custom Integration">
+                
+                <!-- Side-by-side: screen_03 and screen_04 -->
+                <div class="about-gallery">
+                    <div class="about-gallery-item">
+                        <img src="https://base44.app/api/apps/6a50cb047fd0b7d697d9c6fb/files/mp/public/6a50cb047fd0b7d697d9c6fb/979d998c7_screen_03.png" alt="4 Artisa Workspace Detail View">
+                    </div>
+                    <div class="about-gallery-item">
+                        <img src="https://base44.app/api/apps/6a50cb047fd0b7d697d9c6fb/files/mp/public/6a50cb047fd0b7d697d9c6fb/c19dc1b1c_screen_04.png" alt="4 Artisa Workspace Settings & Branding">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
+    <!-- FEATURES SECTION -->
+    <section id="features" class="features-section">
         <div class="container">
-            <div class="section-header">
-                <span class="subtitle">Workspace Overview</span>
+            <div class="features-header">
+                <span class="eyebrow">Workspace Overview</span>
                 <h2>Everything your studio needs. Nothing you don't.</h2>
             </div>
+            
             <div class="features-grid">
+                <!-- Card 1 -->
                 <div class="feature-card">
-                    <div class="feature-icon">❖</div>
+                    <div class="feature-icon-wrapper">
+                        <svg class="feature-svg" viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M9 3v18M3 9h18"/>
+                        </svg>
+                    </div>
                     <h3>Studio Dashboard</h3>
-                    <p>Active clients, revenue, priorities, and follow-ups at a single, intuitive glance.</p>
+                    <p>Active clients, revenue, priorities, and follow-ups at a glance.</p>
                 </div>
+                
+                <!-- Card 2 -->
                 <div class="feature-card">
-                    <div class="feature-icon">✦</div>
+                    <div class="feature-icon-wrapper">
+                        <svg class="feature-svg" viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
                     <h3>Client CRM</h3>
-                    <p>Full contact history, private consultation notes, and connected project links in one place.</p>
+                    <p>Full contact history, notes, and project links in one place.</p>
                 </div>
+                
+                <!-- Card 3 -->
                 <div class="feature-card">
-                    <div class="feature-icon">⚿</div>
+                    <div class="feature-icon-wrapper">
+                        <svg class="feature-svg" viewBox="0 0 24 24">
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
                     <h3>Project Tracker</h3>
-                    <p>Design stages, delivery status, priorities, and strict timeline deadlines structured seamlessly.</p>
+                    <p>Stages, status, priorities, and deadlines perfectly calibrated.</p>
                 </div>
+                
+                <!-- Card 4 -->
                 <div class="feature-card">
-                    <div class="feature-icon">⚛</div>
+                    <div class="feature-icon-wrapper">
+                        <svg class="feature-svg" viewBox="0 0 24 24">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
                     <h3>Lead Manager</h3>
-                    <p>Track every inquiry automatically from first aesthetic design request to the signed contract.</p>
+                    <p>Track every inquiry from first contact to signed contract.</p>
                 </div>
+                
+                <!-- Card 5 -->
                 <div class="feature-card">
-                    <div class="feature-icon">☷</div>
+                    <div class="feature-icon-wrapper">
+                        <svg class="feature-svg" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
                     <h3>Vendor + Materials Library</h3>
-                    <p>Your entire curated go-to physical resources list organized, cataloged, and instantly searchable.</p>
+                    <p>Your go-to resources, organized, tagged, and easily searchable.</p>
                 </div>
+                
+                <!-- Card 6 -->
                 <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
+                    <div class="feature-icon-wrapper">
+                        <svg class="feature-svg" viewBox="0 0 24 24">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
                     <h3>AI-Assisted Workflows</h3>
-                    <p>Auto-draft beautiful client status summaries, follow-ups, and project transcripts effortlessly.</p>
+                    <p>Auto-draft client summaries, follow-ups, and detailed project notes.</p>
                 </div>
             </div>
-            
-            <div class="features-showcase">
-                <div class="showcase-item">
-                    <img src="https://base44.app/api/apps/6a50cb047fd0b7d697d9c6fb/files/mp/public/6a50cb047fd0b7d697d9c6fb/12989b551_1fb8a0e47_4.png" alt="Feature Interface Detail 1">
+
+            <!-- 3-Column Image Grid below feature cards: screen_05, screen_06, screen_07 -->
+            <div class="features-image-grid">
+                <div class="grid-image-wrapper">
+                    <img src="https://base44.app/api/apps/6a50cb047fd0b7d697d9c6fb/files/mp/public/6a50cb047fd0b7d697d9c6fb/e2ad45be4_screen_05.png" alt="4 Artisa Project Workspace Screen">
                 </div>
-                <div class="showcase-item">
-                    <img src="https://base44.app/api/apps/6a50cb047fd0b7d697d9c6fb/files/mp/public/6a50cb047fd0b7d697d9c6fb/2ffc4b4ab_9dc75a098_5.png" alt="Feature Interface Detail 2">
+                <div class="grid-image-wrapper">
+                    <img src="https://base44.app/api/apps/6a50cb047fd0b7d697d9c6fb/files/mp/public/6a50cb047fd0b7d697d9c6fb/20ddc984f_screen_06.png" alt="4 Artisa Client Management Interface">
                 </div>
-                <div class="showcase-item">
-                    <img src="https://base44.app/api/apps/6a50cb047fd0b7d697d9c6fb/files/mp/public/6a50cb047fd0b7d697d9c6fb/1827093e6_5b253a2e4_6.png" alt="Feature Interface Detail 3">
+                <div class="grid-image-wrapper">
+                    <img src="https://base44.app/api/apps/6a50cb047fd0b7d697d9c6fb/files/mp/public/6a50cb047fd0b7d697d9c6fb/8598cbd34_screen_07.png" alt="4 Artisa Workflows & Tasks Interface">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works Section -->
-    <section class="how-it-works">
+    <!-- HOW IT WORKS -->
+    <section class="how-section">
         <div class="container">
-            <div class="section-header">
-                <span class="subtitle">The Process</span>
+            <div class="how-header">
+                <span class="eyebrow">The Process</span>
                 <h2>From onboarding to live in 14 days.</h2>
             </div>
-            <div class="steps-container">
-                <div class="step-item">
-                    <div class="step-number">01</div>
-                    <h3>We Learn Your Workflow</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">You tell us how your studio works. We map every process and configure the system entirely around it.</p>
-                </div>
-                <div class="step-item">
-                    <div class="step-number">02</div>
-                    <h3>We Brand & Migrate</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">We apply your design guidelines and typography, migrate your historical client data, and launch your private system.</p>
-                </div>
-                <div class="step-item">
-                    <div class="step-number">03</div>
-                    <h3>You Run Your Studio</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">You receive secure, custom-branded login access. We manage server updates, back-ups, and ongoing feature adjustments.</p>
-                </div>
-            </div>
             
-            <div class="how-showcase">
-                <div class="how-img-box">
-                    <img src="https://base44.app/api/apps/6a50cb047fd0b7d697d9c6fb/files/mp/public/6a50cb047fd0b7d697d9c6fb/db8c9652e_3b8859c85_7.png" alt="Seamless Studio Systems Configuration">
+            <div class="how-grid">
+                <div class="how-step">
+                    <span class="step-num">01</span>
+                    <h3>Discovery & Config</h3>
+                    <p>You tell us how your studio works. We configure everything around your unique business requirements.</p>
                 </div>
-                <div class="how-img-box">
-                    <img src="https://base44.app/api/apps/6a50cb047fd0b7d697d9c6fb/files/mp/public/6a50cb047fd0b7d697d9c6fb/e3cba7af2_b2e8d2da5_8.png" alt="Ongoing Dedicated Systems Maintenance">
+                <div class="how-step">
+                    <span class="step-num">02</span>
+                    <h3>Branding & Migration</h3>
+                    <p>We apply your brand visual systems, seamlessly migrate your existing client data, and deploy your private database.</p>
+                </div>
+                <div class="how-step">
+                    <span class="step-num">03</span>
+                    <h3>Handover & Peace of Mind</h3>
+                    <p>You receive secure custom login credentials. We completely manage and optimize the back-end infrastructure.</p>
+                </div>
+            </div>
+
+            <!-- Side-by-Side Images: screen_08 and screen_09 -->
+            <div class="how-gallery">
+                <div class="how-gallery-item">
+                    <img src="https://base44.app/api/apps/6a50cb047fd0b7d697d9c6fb/files/mp/public/6a50cb047fd0b7d697d9c6fb/e74f61a9b_screen_08.png" alt="4 Artisa Resource Setup">
+                </div>
+                <div class="how-gallery-item">
+                    <img src="https://base44.app/api/apps/6a50cb047fd0b7d697d9c6fb/files/mp/public/6a50cb047fd0b7d697d9c6fb/01be1cb32_screen_09.png" alt="4 Artisa System Handover & Onboarding">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Founding Studio Section -->
-    <section class="founding-studio">
-        <div class="container">
-            <div class="founding-card">
-                <span class="badge">Limited Access</span>
-                <h2>Become a Founding Studio.</h2>
-                <p>We are accepting a limited number of founding studios to launch with 4 Artisa OPS. Founding studios receive priority setup, direct access to the builder, and locked-in founding pricing — before public launch.</p>
-                <a href="mailto:hello@4artisa.studio" class="btn btn-primary" style="padding: 1.1rem 3rem; font-size: 1rem;">Apply Now</a>
+    <!-- APP GALLERY STRIP -->
+    <section class="gallery-section">
+        <div class="container gallery-header">
+            <span class="eyebrow">Inside the Workspace</span>
+        </div>
+        <div class="gallery-slider">
+            <div class="gallery-slide">
+                <img src="https://base44.app/api/apps/6a50cb047fd0b7d697d9c6fb/files/mp/public/6a50cb047fd0b7d697d9c6fb/87760113e_screen_10.png" alt="4 Artisa Interactive Workspace UI">
+            </div>
+            <div class="gallery-slide">
+                <img src="https://base44.app/api/apps/6a50cb047fd0b7d697d9c6fb/files/mp/public/6a50cb047fd0b7d697d9c6fb/85c06a669_screen_11.png" alt="4 Artisa Vendor Directory View">
+            </div>
+            <div class="gallery-slide">
+                <img src="https://base44.app/api/apps/6a50cb047fd0b7d697d9c6fb/files/mp/public/6a50cb047fd0b7d697d9c6fb/14354094d_screen_12.png" alt="4 Artisa Invoices & Estimates System">
+            </div>
+            <div class="gallery-slide">
+                <img src="https://base44.app/api/apps/6a50cb047fd0b7d697d9c6fb/files/mp/public/6a50cb047fd0b7d697d9c6fb/4b346d01b_screen_13.png" alt="4 Artisa Project Board Matrix">
+            </div>
+            <div class="gallery-slide">
+                <img src="https://base44.app/api/apps/6a50cb047fd0b7d697d9c6fb/files/mp/public/6a50cb047fd0b7d697d9c6fb/bdda2ee0e_screen_14.png" alt="4 Artisa Task Workflow Engine">
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section class="pricing">
+    <!-- FOUNDING STUDIO CTA -->
+    <section class="founding-section">
         <div class="container">
-            <div class="section-header">
-                <span class="subtitle">Investment Plans</span>
+            <div class="founding-box">
+                <div class="founding-box-content">
+                    <h2>Become a Founding Studio.</h2>
+                    <p>We are accepting a limited number of founding studios to launch with 4 Artisa OPS. Founding studios receive priority setup, direct access to the builder, and locked-in founding pricing — before public launch.</p>
+                    <a href="mailto:hello@4artisa.studio" class="btn btn-gold">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="pricing-header">
+                <span class="eyebrow">Investment Plans</span>
                 <h2>Built for studios at every stage.</h2>
             </div>
+            
             <div class="pricing-grid">
                 <!-- Tier 1 -->
                 <div class="pricing-card">
-                    <span class="pricing-tier">Tier 1</span>
-                    <h3>Solo Studio</h3>
-                    <div class="pricing-price">
-                        <span class="price-num">$1,500</span>
-                        <div class="price-sub">setup + $59/mo</div>
+                    <div class="pricing-card-top">
+                        <h3>Solo Studio</h3>
+                        <div class="price-tag">$1,500 <span>setup + $59/mo</span></div>
+                        <p style="font-size: 0.95rem; margin-top: 1rem;">For solo interior designers who need standard, turn-key operations systems with zero maintenance.</p>
+                        <ul class="pricing-features">
+                            <li>Done-for-you managed hosting</li>
+                            <li>Full Studio Core Suite</li>
+                            <li>Branded Custom Workspace</li>
+                            <li>Standard Client Migration</li>
+                        </ul>
                     </div>
-                    <ul class="pricing-features">
-                        <li>For solo interior designers</li>
-                        <li>Fully custom system layout</li>
-                        <li>Done-for-you managed hosting</li>
-                        <li>Continuous backups & support</li>
-                    </ul>
-                    <a href="https://contra.com/s/BR6oPXlk-tier-1-4-artisa-creative-solo-studio-ops" class="btn-contra" target="_blank">Learn More</a>
+                    <a href="https://contra.com/s/BR6oPXlk-tier-1-4-artisa-creative-solo-studio-ops" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-left: 0; border-color: rgba(201, 168, 76, 0.4); color: var(--accent-color);">Select Plan</a>
                 </div>
 
                 <!-- Tier 2 -->
-                <div class="pricing-card featured">
-                    <span class="pricing-tier">Tier 2</span>
-                    <h3>Boutique Studio</h3>
-                    <div class="pricing-price">
-                        <span class="price-num">$3,500</span>
-                        <div class="price-sub">setup</div>
+                <div class="pricing-card popular">
+                    <span class="popular-badge">Most Popular</span>
+                    <div class="pricing-card-top">
+                        <h3>Boutique Studio</h3>
+                        <div class="price-tag">$3,500 <span>setup</span></div>
+                        <p style="font-size: 0.95rem; margin-top: 1rem;">For small boutique design teams seeking fully client-owned infrastructure and deep workspace options.</p>
+                        <ul class="pricing-features">
+                            <li>Client-owned infrastructure</li>
+                            <li>Boutique Custom Dashboards</li>
+                            <li>Advanced CRM & Workflows</li>
+                            <li>Full Media & Asset Libraries</li>
+                        </ul>
                     </div>
-                    <ul class="pricing-features">
-                        <li>For small collaborative teams</li>
-                        <li>Client-owned infrastructure</li>
-                        <li>Advanced operational custom fields</li>
-                        <li>1-on-1 operational review</li>
-                    </ul>
-                    <a href="https://contra.com/s/3ksNXkbo-tier-2-4-artisa-creative-boutique-studio-ops" class="btn-contra" target="_blank">Learn More</a>
+                    <a href="https://contra.com/s/3ksNXkbo-tier-2-4-artisa-creative-boutique-studio-ops" target="_blank" rel="noopener" class="btn btn-gold">Select Plan</a>
                 </div>
 
                 <!-- Tier 3 -->
                 <div class="pricing-card">
-                    <span class="pricing-tier">Tier 3</span>
-                    <h3>Creative Team</h3>
-                    <div class="pricing-price">
-                        <span class="price-num">$4,800</span>
-                        <div class="price-sub">setup</div>
+                    <div class="pricing-card-top">
+                        <h3>Creative Team</h3>
+                        <div class="price-tag">$4,800 <span>setup</span></div>
+                        <p style="font-size: 0.95rem; margin-top: 1rem;">For rapidly scaling agencies and design teams requiring robust collaboration mechanics and expanded workflows.</p>
+                        <ul class="pricing-features">
+                            <li>Full team access protocols</li>
+                            <li>Custom Multi-User Workflows</li>
+                            <li>Priority VIP Migration & Setups</li>
+                            <li>Dedicated Support Channels</li>
+                        </ul>
                     </div>
-                    <ul class="pricing-features">
-                        <li>For growing creative studios</li>
-                        <li>Full team seat access</li>
-                        <li>Expanded multi-channel workflows</li>
-                        <li>Dedicated training session</li>
-                    </ul>
-                    <a href="https://contra.com/s/Pv3FlokE-tier-3-4-artisa-creative-team-ops" class="btn-contra" target="_blank">Learn More</a>
+                    <a href="https://contra.com/s/Pv3FlokE-tier-3-4-artisa-creative-team-ops" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-left: 0; border-color: rgba(240, 236, 228, 0.15);">Select Plan</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <h4>4 Artisa Creative OPS</h4>
-                    <p>Branded, done-for-you operations workspaces built specifically for elite interior design studios.</p>
-                </div>
-                <div class="footer-links">
-                    <h5>Get In Touch</h5>
-                    <ul>
-                        <li><a href="mailto:hello@4artisa.studio">hello@4artisa.studio</a></li>
-                    </ul>
+                    <h4 style="font-family: var(--font-display); font-size: 2rem; color: var(--text-color); margin-bottom: 1rem;">4 Artisa.</h4>
+                    <p>Premium dark-mode operational workspaces built specifically for your luxury interior design studio.</p>
                 </div>
                 <div class="footer-links">
                     <h5>Connect</h5>
                     <ul>
-                        <li><a href="https://contra.com/christopherbrianarts" target="_blank">Contra Portfolio</a></li>
+                        <li><a href="mailto:hello@4artisa.studio">hello@4artisa.studio</a></li>
+                        <li><a href="https://contra.com/christopherbrianarts" target="_blank" rel="noopener">Contra Profile</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>Founding Application</h5>
+                    <ul>
+                        <li><a href="mailto:hello@4artisa.studio?subject=Founding%20Studio%20Application">Apply Today</a></li>
                     </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2026 4 Artisa Creative OPS. All rights reserved. A studio management system by Christopher Chandler.</p>
-                <p>Designed in Birmingham, AL</p>
+                <p>&copy; 2026 4 Artisa Creative OPS. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <span>A studio management system by Christopher Chandler</span>
+                    <span>Designed in Birmingham, AL</span>
+                </div>
             </div>
         </div>
     </footer>
